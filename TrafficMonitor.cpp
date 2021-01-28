@@ -51,7 +51,6 @@ void CTrafficMonitorApp::LoadConfig()
 
 	//主窗口设置
 	m_cfg_data.m_transparency = ini.GetInt(_T("config"), _T("transparency"), 80);
-	m_cfg_data.m_always_on_top = ini.GetBool(_T("config"), _T("always_on_top"), true);
 	m_cfg_data.m_lock_window_pos = ini.GetBool(_T("config"), _T("lock_window_pos"), false);
 	m_cfg_data.m_show_notify_icon = ini.GetBool(_T("config"), _T("show_notify_icon"), true);
 	m_cfg_data.m_show_more_info = ini.GetBool(_T("config"), _T("show_cpu_memory"), false);
@@ -193,7 +192,6 @@ void CTrafficMonitorApp::SaveConfig()
 
 	//主窗口设置
 	ini.WriteInt(L"config", L"transparency", m_cfg_data.m_transparency);
-	ini.WriteBool(L"config", L"always_on_top", m_cfg_data.m_always_on_top);
 	ini.WriteBool(L"config", L"lock_window_pos", m_cfg_data.m_lock_window_pos);
 	ini.WriteBool(L"config", L"show_notify_icon", m_cfg_data.m_show_notify_icon);
 	ini.WriteBool(L"config", L"show_cpu_memory", m_cfg_data.m_show_more_info);
