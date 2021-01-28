@@ -54,10 +54,6 @@ BEGIN_MESSAGE_MAP(CTrafficMonitorDlg, CDialogEx)
 	ON_WM_LBUTTONDOWN()
 	ON_COMMAND(ID_NETWORK_INFO, &CTrafficMonitorDlg::OnNetworkInfo)
 	ON_WM_INITMENUPOPUP()
-	ON_COMMAND(ID_TRANSPARENCY_100, &CTrafficMonitorDlg::OnTransparency100)
-	ON_COMMAND(ID_TRANSPARENCY_80, &CTrafficMonitorDlg::OnTransparency80)
-	ON_COMMAND(ID_TRANSPARENCY_60, &CTrafficMonitorDlg::OnTransparency60)
-	ON_COMMAND(ID_TRANSPARENCY_40, &CTrafficMonitorDlg::OnTransparency40)
 	ON_WM_CLOSE()
 	ON_WM_INITMENU()
 	ON_COMMAND(ID_LOCK_WINDOW_POS, &CTrafficMonitorDlg::OnLockWindowPos)
@@ -215,18 +211,6 @@ CString CTrafficMonitorDlg::GetMouseTipsInfo()
 		}
 	}
 	return tip_info;
-}
-
-void CTrafficMonitorDlg::SetTransparency()
-{
-	SetWindowLong(m_hWnd, GWL_EXSTYLE, GetWindowLong(m_hWnd, GWL_EXSTYLE) | WS_EX_LAYERED);
-	SetLayeredWindowAttributes(0, theApp.m_cfg_data.m_transparency * 255 / 100, LWA_ALPHA);  //透明度取值范围为0~255
-}
-
-void CTrafficMonitorDlg::SetTransparency(int transparency)
-{
-	SetWindowLong(m_hWnd, GWL_EXSTYLE, GetWindowLong(m_hWnd, GWL_EXSTYLE) | WS_EX_LAYERED);
-	SetLayeredWindowAttributes(0, transparency * 255 / 100, LWA_ALPHA);  //透明度取值范围为0~255
 }
 
 
@@ -628,9 +612,6 @@ BOOL CTrafficMonitorDlg::OnInitDialog()
 
     theApp.InitMenuResourse();
 
-	//设置窗口透明度
-	SetTransparency();
-
 	IniConnection();	//初始化连接
 
 	//如果启动时没有显示任务栏窗口，则显示通知区图标
@@ -702,9 +683,6 @@ BOOL CTrafficMonitorDlg::OnInitDialog()
 
 	//设置获取CPU利用率的方式
 	m_cpu_usage.SetUseCPUTimes(theApp.m_general_data.m_get_cpu_usage_by_cpu_times);
-
-	//如果程序启动时设置了隐藏主窗口将其不透明度设为0
-	SetTransparency(0);
 
 	SetTimer(TASKBAR_TIMER, 100, NULL);
 
@@ -894,7 +872,6 @@ void CTrafficMonitorDlg::OnTimer(UINT_PTR nIDEvent)
             {
                 SetWindowPos(nullptr, theApp.m_cfg_data.m_position_x, theApp.m_cfg_data.m_position_y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
             }
-            SetTransparency();				//重新设置窗口不透明度
 
             m_first_start = false;
         }
@@ -1250,40 +1227,6 @@ void CTrafficMonitorDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bS
 }
 
 
-void CTrafficMonitorDlg::OnTransparency100()
-{
-	// TODO: 在此添加命令处理程序代码
-	theApp.m_cfg_data.m_transparency = 100;
-	SetTransparency();
-	theApp.SaveConfig();
-}
-
-
-void CTrafficMonitorDlg::OnTransparency80()
-{
-	// TODO: 在此添加命令处理程序代码
-	theApp.m_cfg_data.m_transparency = 80;
-	SetTransparency();
-	theApp.SaveConfig();
-}
-
-
-void CTrafficMonitorDlg::OnTransparency60()
-{
-	// TODO: 在此添加命令处理程序代码
-	theApp.m_cfg_data.m_transparency = 60;
-	SetTransparency();
-	theApp.SaveConfig();
-}
-
-
-void CTrafficMonitorDlg::OnTransparency40()
-{
-	// TODO: 在此添加命令处理程序代码
-	theApp.m_cfg_data.m_transparency = 40;
-	SetTransparency();
-	theApp.SaveConfig();
-}
 
 
 void CTrafficMonitorDlg::OnClose()
@@ -1344,16 +1287,6 @@ void CTrafficMonitorDlg::OnInitMenu(CMenu* pMenu)
 	//设置“选择连接”子菜单项中各单选项的选择状态
     CMenu* select_connection_menu = theApp.m_main_menu.GetSubMenu(0)->GetSubMenu(0);
 	SetConnectionMenuState(select_connection_menu);
-
-	//设置“窗口不透明度”子菜单下各单选项的选择状态
-	switch (theApp.m_cfg_data.m_transparency)
-	{
-	case 100: pMenu->CheckMenuRadioItem(ID_TRANSPARENCY_100, ID_TRANSPARENCY_40, ID_TRANSPARENCY_100, MF_BYCOMMAND | MF_CHECKED); break;
-	case 80: pMenu->CheckMenuRadioItem(ID_TRANSPARENCY_100, ID_TRANSPARENCY_40, ID_TRANSPARENCY_80, MF_BYCOMMAND | MF_CHECKED); break;
-	case 60: pMenu->CheckMenuRadioItem(ID_TRANSPARENCY_100, ID_TRANSPARENCY_40, ID_TRANSPARENCY_60, MF_BYCOMMAND | MF_CHECKED); break;
-	case 40: pMenu->CheckMenuRadioItem(ID_TRANSPARENCY_100, ID_TRANSPARENCY_40, ID_TRANSPARENCY_40, MF_BYCOMMAND | MF_CHECKED); break;
-	default: break;
-	}
 
 	if(!theApp.m_cfg_data.m_show_task_bar_wnd)	//如果没有显示任务栏窗口，则禁用“显示通知区图标”菜单项
 		pMenu->EnableMenuItem(ID_SHOW_NOTIFY_ICON, MF_BYCOMMAND | MF_GRAYED);

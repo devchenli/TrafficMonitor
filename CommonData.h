@@ -91,7 +91,6 @@ enum TaskbarDisplayItem
 //选项设置数据
 struct MainConfigData
 {
-	int m_transparency{ 100 };			//窗口透明度
 	bool m_lock_window_pos{ false };	//锁定窗口位置
 	bool m_show_more_info{ false };		//显示更多信息
 	bool m_show_task_bar_wnd{ false };	//显示任务栏窗口

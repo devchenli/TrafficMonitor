@@ -50,7 +50,6 @@ void CTrafficMonitorApp::LoadConfig()
 		CCommon::SetColorMode(ColorMode::Default);
 
 	//主窗口设置
-	m_cfg_data.m_transparency = ini.GetInt(_T("config"), _T("transparency"), 80);
 	m_cfg_data.m_lock_window_pos = ini.GetBool(_T("config"), _T("lock_window_pos"), false);
 	m_cfg_data.m_show_notify_icon = ini.GetBool(_T("config"), _T("show_notify_icon"), true);
 	m_cfg_data.m_show_more_info = ini.GetBool(_T("config"), _T("show_cpu_memory"), false);
@@ -59,7 +58,6 @@ void CTrafficMonitorApp::LoadConfig()
 	m_cfg_data.m_position_y = ini.GetInt(_T("config"), _T("position_y"), -1);
 	m_cfg_data.m_auto_select = ini.GetBool(_T("connection"), _T("auto_select"), true);
 	m_cfg_data.m_select_all = ini.GetBool(_T("connection"), _T("select_all"), false);
-	//m_main_wnd_data.text_color = ini.GetInt(_T("config"), _T("text_color"), 16384);
 	ini.GetIntArray(_T("config"), _T("text_color"), (int*)m_main_wnd_data.text_colors, MAIN_WND_COLOR_NUM, 16384);
 	m_main_wnd_data.specify_each_item_color = ini.GetBool(_T("config"), _T("specify_each_item_color"), false);
 	m_cfg_data.m_connection_name = CCommon::UnicodeToStr(ini.GetString(L"connection", L"connection_name", L"").c_str());
@@ -77,8 +75,6 @@ void CTrafficMonitorApp::LoadConfig()
 	default_font.name = CCommon::LoadText(IDS_DEFAULT_FONT);
 	default_font.size = 10;
 	ini.LoadFontData(_T("config"), m_main_wnd_data.font, default_font);
-	//m_main_wnd_data.font.name = ini.GetString(_T("config"), _T("font_name"), CCommon::LoadText(IDS_MICROSOFT_YAHEI)).c_str();
-	//m_main_wnd_data.font.size = ini.GetInt(_T("config"), _T("font_size"), 10);
 
 	m_main_wnd_data.disp_str.up = ini.GetString(_T("config"), L"up_string", CCommon::LoadText(IDS_UPLOAD_DISP, _T(": $")));
 	m_main_wnd_data.disp_str.down = ini.GetString(L"config", L"down_string", CCommon::LoadText(IDS_DOWNLOAD_DISP, _T(": $")));
@@ -113,7 +109,6 @@ void CTrafficMonitorApp::LoadConfig()
 		CCommon::TransparentColorConvert(m_taskbar_data.transparent_color);
 	}
 	m_taskbar_data.status_bar_color = ini.GetInt(_T("task_bar"), _T("status_bar_color"), m_taskbar_data.dft_status_bar_color);
-	//m_taskbar_data.text_color = GetPrivateProfileInt(_T("task_bar"), _T("task_bar_text_color"), 0x00ffffffU, m_config_path.c_str());
 	ini.GetIntArray(_T("task_bar"), _T("task_bar_text_color"), (int*)m_taskbar_data.text_colors, TASKBAR_COLOR_NUM, m_taskbar_data.dft_text_colors);
 	m_taskbar_data.specify_each_item_color = ini.GetBool(L"task_bar", L"specify_each_item_color", false);
 	//m_cfg_data.m_tbar_show_cpu_memory = ini.GetBool(_T("task_bar"), _T("task_bar_show_cpu_memory"), false);
@@ -125,9 +120,6 @@ void CTrafficMonitorApp::LoadConfig()
 		m_taskbar_data.back_color = m_taskbar_data.dft_back_color;
 		m_taskbar_data.text_colors[0] = m_taskbar_data.dft_text_colors;
 	}
-
-	//m_taskbar_data.font.name = ini.GetString(_T("task_bar"), _T("tack_bar_font_name"), CCommon::LoadText(IDS_MICROSOFT_YAHEI)).c_str();
-	//m_taskbar_data.font.size = ini.GetInt(_T("task_bar"), _T("tack_bar_font_size"), 9);
 	default_font = FontInfo{};
 	default_font.name = CCommon::LoadText(IDS_DEFAULT_FONT);
 	default_font.size = 9;
@@ -191,7 +183,6 @@ void CTrafficMonitorApp::SaveConfig()
     ini.WriteInt(L"general", L"monitor_time_span", m_general_data.monitor_time_span);
 
 	//主窗口设置
-	ini.WriteInt(L"config", L"transparency", m_cfg_data.m_transparency);
 	ini.WriteBool(L"config", L"lock_window_pos", m_cfg_data.m_lock_window_pos);
 	ini.WriteBool(L"config", L"show_notify_icon", m_cfg_data.m_show_notify_icon);
 	ini.WriteBool(L"config", L"show_cpu_memory", m_cfg_data.m_show_more_info);
