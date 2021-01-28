@@ -1,17 +1,1 @@
-﻿  AdapterCommon.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\AdapterCommon.cpp(107,23): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\AdapterCommon.cpp(130,12): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\AdapterCommon.cpp(147,12): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\AdapterCommon.cpp(159,18): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  crashtool.cpp
-  TaskBarSettingsDlg.cpp
-  TrafficMonitor.cpp
-  TrafficMonitorDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(238,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(294,37): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(323,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(370,87): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(372,87): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(374,111): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
-  正在生成代码...
-  TrafficMonitor.vcxproj -> C:\Users\devli\Desktop\TrafficMonitor\x64\Debug\TrafficMonitor.exe
+﻿  TrafficMonitor.vcxproj -> C:\Users\devli\Desktop\TrafficMonitor\x64\Debug\TrafficMonitor.exe

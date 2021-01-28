@@ -62,7 +62,6 @@ public:
 	bool m_debug_log{};
 	bool m_taksbar_transparent_color_enable{};
 	bool m_last_light_mode{};
-	bool m_show_mouse_panetrate_tip{};	//是否显示开启“鼠标穿透”时的提示消息。
 
 	//bool m_is_windows10_fall_creator;
 	CWinVersionHelper m_win_version;		//当前Windows的版本
@@ -108,7 +107,6 @@ private:
 	bool m_no_multistart_warning{};			//如果为false，则永远都不会弹出“已经有一个程序正在运行”的警告提示
 	bool m_exit_when_start_by_restart_manager{ true };		//如果程序被Windows重启管理器重新启动，则退出程序
 	int m_dpi{ 96 };
-	CWinThread* m_pUpdateThread;			//检查更新的线程
 
     std::map<UINT, HICON> m_menu_icons;      //菜单图标资源。key是图标资源的ID，vlaue是图标的句柄
 
