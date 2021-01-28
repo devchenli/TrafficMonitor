@@ -131,16 +131,10 @@ public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnNetworkInfo();
 	afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
-	afx_msg void OnTransparency100();
-	afx_msg void OnTransparency80();
-	afx_msg void OnTransparency60();
-	afx_msg void OnTransparency40();
 	afx_msg void OnClose();
 	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnInitMenu(CMenu* pMenu);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnLockWindowPos();
-	afx_msg void OnUpdateLockWindowPos(CCmdUI *pCmdUI);
 	afx_msg void OnMove(int x, int y);
 protected:
 	afx_msg LRESULT OnNotifyIcon(WPARAM wParam, LPARAM lParam);
@@ -148,9 +142,6 @@ public:
 	afx_msg void OnShowNotifyIcon();
 	afx_msg void OnUpdateShowNotifyIcon(CCmdUI *pCmdUI);
 	afx_msg void OnDestroy();
-	afx_msg void OnShowCpuMemory();
-	afx_msg void OnUpdateShowCpuMemory(CCmdUI *pCmdUI);
-	afx_msg void OnMousePenetrate();
 	afx_msg void OnShowTaskBarWnd();
 	afx_msg void OnShowCpuMemory2();
 	afx_msg LRESULT OnTaskBarCreated(WPARAM wParam, LPARAM lParam);

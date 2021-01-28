@@ -61,8 +61,6 @@ BEGIN_MESSAGE_MAP(CTrafficMonitorDlg, CDialogEx)
 	ON_COMMAND(ID_SHOW_NOTIFY_ICON, &CTrafficMonitorDlg::OnShowNotifyIcon)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_NOTIFY_ICON, &CTrafficMonitorDlg::OnUpdateShowNotifyIcon)
 	ON_WM_DESTROY()
-	ON_COMMAND(ID_SHOW_CPU_MEMORY, &CTrafficMonitorDlg::OnShowCpuMemory)
-	ON_UPDATE_COMMAND_UI(ID_SHOW_CPU_MEMORY, &CTrafficMonitorDlg::OnUpdateShowCpuMemory)
 	ON_COMMAND(ID_SHOW_TASK_BAR_WND, &CTrafficMonitorDlg::OnShowTaskBarWnd)
 	ON_COMMAND(ID_SHOW_CPU_MEMORY2, &CTrafficMonitorDlg::OnShowCpuMemory2)
 	ON_REGISTERED_MESSAGE(m_WM_TASKBARCREATED, &CTrafficMonitorDlg::OnTaskBarCreated)
@@ -1410,30 +1408,6 @@ void CTrafficMonitorDlg::OnDestroy()
 }
 
 
-void CTrafficMonitorDlg::OnShowCpuMemory()
-{
-	// TODO: 在此添加命令处理程序代码
-	CRect rect;
-	GetWindowRect(rect);
-	if (theApp.m_cfg_data.m_show_more_info)
-	{
-		rect.right = rect.left + m_layout_data.width_s;
-		rect.bottom = rect.top + m_layout_data.height_s;
-		MoveWindow(rect);
-		theApp.m_cfg_data.m_show_more_info = false;
-	}
-	else
-	{
-		rect.right = rect.left + m_layout_data.width_l;
-		rect.bottom = rect.top + m_layout_data.height_l;
-		MoveWindow(rect);
-		theApp.m_cfg_data.m_show_more_info = true;
-	}
-	SetItemPosition();
-	ShowInfo();
-	theApp.SaveConfig();
-}
-
 
 //任务栏窗口切换显示CPU和内存利用率时的处理
 void CTrafficMonitorDlg::OnShowCpuMemory2()
@@ -1458,14 +1432,6 @@ void CTrafficMonitorDlg::OnShowCpuMemory2()
 		OpenTaskBarWnd();
 	}
 }
-
-
-void CTrafficMonitorDlg::OnUpdateShowCpuMemory(CCmdUI *pCmdUI)
-{
-	// TODO: 在此添加命令更新用户界面处理程序代码
-	pCmdUI->SetCheck(theApp.m_cfg_data.m_show_more_info);
-}
-
 
 
 void CTrafficMonitorDlg::OnShowTaskBarWnd()
