@@ -52,14 +52,12 @@ BOOL COptionsDlg::OnInitDialog()
     SetIcon(theApp.GetMenuIcon(IDI_SETTINGS), FALSE);		// 设置小图标
 
 	//创建子对话框
-	m_tab1_dlg.Create(IDD_MAIN_WND_SETTINGS_DIALOG, &m_tab);
-	m_tab2_dlg.Create(IDD_TASKBAR_SETTINGS_DIALOG, &m_tab);
-	m_tab3_dlg.Create(IDD_GENERAL_SETTINGS_DIALOG, &m_tab);
+	m_tab_taskbar_dlg.Create(IDD_TASKBAR_SETTINGS_DIALOG, &m_tab);
+	m_tab_general_dlg.Create(IDD_GENERAL_SETTINGS_DIALOG, &m_tab);
 
     //保存子对话框
-    m_tab_vect.push_back(&m_tab1_dlg);
-    m_tab_vect.push_back(&m_tab2_dlg);
-    m_tab_vect.push_back(&m_tab3_dlg);
+    m_tab_vect.push_back(&m_tab_taskbar_dlg);
+    m_tab_vect.push_back(&m_tab_general_dlg);
 
     //获取子对话框的初始高度
     for (const auto* pDlg : m_tab_vect)
@@ -70,12 +68,8 @@ BOOL COptionsDlg::OnInitDialog()
     }
 
 	//添加对话框
-
-    
-    
-    //m_tab.AddWindow(&m_tab1_dlg, CCommon::LoadText(IDS_MAIN_WINDOW_SETTINGS));
-	m_tab.AddWindow(&m_tab2_dlg, CCommon::LoadText(IDS_TASKBAR_WINDOW_SETTINGS));
-	m_tab.AddWindow(&m_tab3_dlg, CCommon::LoadText(IDS_GENERAL_SETTINGS));
+	m_tab.AddWindow(&m_tab_taskbar_dlg, CCommon::LoadText(IDS_TASKBAR_WINDOW_SETTINGS));
+	m_tab.AddWindow(&m_tab_general_dlg, CCommon::LoadText(IDS_GENERAL_SETTINGS));
 
     //为每个子窗口设置滚动信息
     for (size_t i = 0; i < m_tab_vect.size(); i++)
@@ -96,9 +90,8 @@ BOOL COptionsDlg::OnInitDialog()
 void COptionsDlg::OnOK()
 {
 	// TODO: 在此添加专用代码和/或调用基类
-	m_tab1_dlg.OnOK();
-	m_tab2_dlg.OnOK();
-	m_tab3_dlg.OnOK();
+	m_tab_taskbar_dlg.OnOK();
+	m_tab_general_dlg.OnOK();
 
 	CBaseDialog::OnOK();
 }

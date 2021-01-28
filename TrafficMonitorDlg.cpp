@@ -486,16 +486,16 @@ void CTrafficMonitorDlg::_OnOptions(int tab)
 {
 	COptionsDlg optionsDlg(tab);
 	//将选项设置数据传递给选项设置对话框
-	optionsDlg.m_tab1_dlg.m_data = theApp.m_main_wnd_data;
-	optionsDlg.m_tab2_dlg.m_data = theApp.m_taskbar_data;
-	optionsDlg.m_tab3_dlg.m_data = theApp.m_general_data;
-	optionsDlg.m_tab1_dlg.m_text_disable = m_layout_data.no_text;
+	//optionsDlg.m_tab1_dlg.m_data = theApp.m_main_wnd_data;
+	optionsDlg.m_tab_taskbar_dlg.m_data = theApp.m_taskbar_data;
+	optionsDlg.m_tab_general_dlg.m_data = theApp.m_general_data;
+	//optionsDlg.m_tab1_dlg.m_text_disable = m_layout_data.no_text;
 
 	if (optionsDlg.DoModal() == IDOK)
 	{
-		theApp.m_main_wnd_data = optionsDlg.m_tab1_dlg.m_data;
-		theApp.m_taskbar_data = optionsDlg.m_tab2_dlg.m_data;
-		theApp.m_general_data = optionsDlg.m_tab3_dlg.m_data;
+	//	theApp.m_main_wnd_data = optionsDlg.m_tab1_dlg.m_data;
+		theApp.m_taskbar_data = optionsDlg.m_tab_taskbar_dlg.m_data;
+		theApp.m_general_data = optionsDlg.m_tab_general_dlg.m_data;
 
 		ApplySettings();
 
@@ -508,13 +508,13 @@ void CTrafficMonitorDlg::_OnOptions(int tab)
 			OpenTaskBarWnd();
 		}
 
-		if(optionsDlg.m_tab3_dlg.IsAutoRunModified())
+		if(optionsDlg.m_tab_general_dlg.IsAutoRunModified())
 			theApp.SetAutoRun(theApp.m_general_data.auto_run);
 
-		if (optionsDlg.m_tab3_dlg.IsShowAllInterfaceModified())
+		if (optionsDlg.m_tab_general_dlg.IsShowAllInterfaceModified())
 			IniConnection();
 
-        if (optionsDlg.m_tab3_dlg.IsMonitorTimeSpanModified())      //如果监控时间间隔改变了，则重设定时器
+        if (optionsDlg.m_tab_general_dlg.IsMonitorTimeSpanModified())      //如果监控时间间隔改变了，则重设定时器
         {
             KillTimer(MONITOR_TIMER);
             SetTimer(MONITOR_TIMER, theApp.m_general_data.monitor_time_span, NULL);
