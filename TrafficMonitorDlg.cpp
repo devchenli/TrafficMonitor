@@ -56,8 +56,6 @@ BEGIN_MESSAGE_MAP(CTrafficMonitorDlg, CDialogEx)
 	ON_WM_INITMENUPOPUP()
 	ON_WM_CLOSE()
 	ON_WM_INITMENU()
-	ON_COMMAND(ID_LOCK_WINDOW_POS, &CTrafficMonitorDlg::OnLockWindowPos)
-	ON_UPDATE_COMMAND_UI(ID_LOCK_WINDOW_POS, &CTrafficMonitorDlg::OnUpdateLockWindowPos)
 	ON_WM_MOVE()
 	ON_MESSAGE(MY_WM_NOTIFYICON, &CTrafficMonitorDlg::OnNotifyIcon)
 	ON_COMMAND(ID_SHOW_NOTIFY_ICON, &CTrafficMonitorDlg::OnShowNotifyIcon)
@@ -1116,10 +1114,7 @@ void CTrafficMonitorDlg::OnRButtonUp(UINT nFlags, CPoint point)
 
 void CTrafficMonitorDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	//在未锁定窗口位置时允许通过点击窗口内部来拖动窗口
-	if (!theApp.m_cfg_data.m_lock_window_pos)
-		PostMessage(WM_NCLBUTTONDOWN, HTCAPTION, MAKELPARAM(point.x, point.y));
+	PostMessage(WM_NCLBUTTONDOWN, HTCAPTION, MAKELPARAM(point.x, point.y));
 	CDialogEx::OnLButtonDown(nFlags, point);
 }
 
@@ -1311,21 +1306,6 @@ BOOL CTrafficMonitorDlg::PreTranslateMessage(MSG* pMsg)
 	}
 
 	return CDialogEx::PreTranslateMessage(pMsg);
-}
-
-
-void CTrafficMonitorDlg::OnLockWindowPos()
-{
-	// TODO: 在此添加命令处理程序代码
-	theApp.m_cfg_data.m_lock_window_pos = !theApp.m_cfg_data.m_lock_window_pos;
-	theApp.SaveConfig();
-}
-
-
-void CTrafficMonitorDlg::OnUpdateLockWindowPos(CCmdUI *pCmdUI)
-{
-	// TODO: 在此添加命令更新用户界面处理程序代码
-	pCmdUI->SetCheck(theApp.m_cfg_data.m_lock_window_pos);
 }
 
 
