@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件和头文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="源文件和头文件\对话框类">
+      <UniqueIdentifier>{296f91e9-59c8-4e1c-9281-b3a5aad240d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\派生的控件类">
+      <UniqueIdentifier>{ccda107e-9fc9-493f-991e-b5a9f7dfe2f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\派生的控件类\ListCtrlEx">
+      <UniqueIdentifier>{74012c97-afb7-4e09-8b11-4e2945c37449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\派生的控件类\StaticEx">
+      <UniqueIdentifier>{4745c17a-24c6-46a2-a075-b93654aae464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\TaskBarDlg">
+      <UniqueIdentifier>{19e2ade9-e461-4885-aa2e-7774b60ebc42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\TrafficMonitor">
+      <UniqueIdentifier>{3a1e6295-c622-4708-b984-c5e7d05db5df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\TrafficMonitorDlg">
+      <UniqueIdentifier>{22456594-86cd-4c0e-8ab9-e45cc6d78121}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\stdafx">
+      <UniqueIdentifier>{ee6e7f72-a080-4020-92ff-432b8dcdad2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\对话框类\选项设置对话框">
+      <UniqueIdentifier>{98909116-8f3b-47d0-8e3f-ef90b29a2acc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\对话框类\NetworkInfoDlg">
+      <UniqueIdentifier>{cb7cc4d3-21ca-46e1-ab0e-a35ca66a5603}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类">
+      <UniqueIdentifier>{5db79e4d-ccae-4347-8e35-bea54fc5a0a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\对话框类\IconSelectDlg">
+      <UniqueIdentifier>{eedf8a29-f4cb-4c66-a019-593c9dfd81ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\派生的控件类\PictureStatic">
+      <UniqueIdentifier>{adb67f17-86da-401c-981c-c6f49a1f52ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\Common">
+      <UniqueIdentifier>{7f523bbb-ec3f-4626-b1d8-ad45c2467dd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\DrawCommon">
+      <UniqueIdentifier>{c4eace17-d9e5-43bf-8e13-30680c7c80be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\派生的控件类\SpinEdit">
+      <UniqueIdentifier>{e63367cf-7c0d-4822-ac30-0f484e65f26d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\派生的控件类\TabDlg">
+      <UniqueIdentifier>{5d1d612c-7ef4-498c-9d8f-ad11555faa80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\派生的控件类\ColorStatic">
+      <UniqueIdentifier>{1c3d2e37-c54d-429a-ac6f-efe82f02902c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\IniHelper">
+      <UniqueIdentifier>{974cdadc-b70f-420b-b28b-c09a0686077c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\对话框类\颜色设置对话框">
+      <UniqueIdentifier>{66fdf1ef-3bc4-445a-b08e-4cd121d3455a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\派生的控件类\LinkStatic">
+      <UniqueIdentifier>{6fce899f-3e92-40c2-a69b-ffcfb4a4c19f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\CalendarHelper">
+      <UniqueIdentifier>{9fa66474-d19b-4357-9813-e511bb20c722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\AdapterCommon">
+      <UniqueIdentifier>{75cd7f4d-06b2-467e-9960-994560da6e7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\WinVersionHelper">
+      <UniqueIdentifier>{dd5aaacf-0f59-47ca-a738-250b15c6bbbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\SimpleXML">
+      <UniqueIdentifier>{8c35a0e3-e526-4f2f-9bc2-ed74dd37b238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\对话框类\颜色设置对话框\MFCColorDialogEx">
+      <UniqueIdentifier>{dd737159-8653-44d0-bf51-f0e3afad4e5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\派生的控件类\CTabCtrlEx">
+      <UniqueIdentifier>{e5835851-f8d8-47dd-9669-f70b6f424386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\CrashTool">
+      <UniqueIdentifier>{12448ccc-0fa7-4f50-8261-dcb04f068e39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\对话框类\MessageDlg">
+      <UniqueIdentifier>{645d28e7-da22-44f8-8e33-894109dde4b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\CVariant">
+      <UniqueIdentifier>{1ca17ad5-07ba-4361-bbeb-fdc5047697fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\CPUUsage">
+      <UniqueIdentifier>{926ebc77-cc7f-431a-896d-3a4019b41991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\对话框类\BaseDialog">
+      <UniqueIdentifier>{6f91f987-8834-4e89-b14e-d3ae15040848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\TaskbarDefaultStyle">
+      <UniqueIdentifier>{d2389f34-94a7-409a-97d0-47890e629c20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\对话框类\选项设置对话框\AutoAdaptSettingsDlg">
+      <UniqueIdentifier>{2393c651-03a5-467c-a927-a3e99fdc48c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="测试">
+      <UniqueIdentifier>{df6d5fed-e1e8-4538-b028-f046ac67ad3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件和头文件\公共的类\WIC">
+      <UniqueIdentifier>{2f6c60c6-eed6-4cad-8a1f-8759efb79d1d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\Acknowledgement.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>源文件和头文件\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>源文件和头文件\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ListCtrlEx.h">
+      <Filter>源文件和头文件\派生的控件类\ListCtrlEx</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticEx.h">
+      <Filter>源文件和头文件\派生的控件类\StaticEx</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskBarDlg.h">
+      <Filter>源文件和头文件\TaskBarDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="TrafficMonitor.h">
+      <Filter>源文件和头文件\TrafficMonitor</Filter>
+    </ClInclude>
+    <ClInclude Include="TrafficMonitorDlg.h">
+      <Filter>源文件和头文件\TrafficMonitorDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>源文件和头文件\stdafx</Filter>
+    </ClInclude>
+    <ClInclude Include="MainWndSettingsDlg.h">
+      <Filter>源文件和头文件\对话框类\选项设置对话框</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskBarSettingsDlg.h">
+      <Filter>源文件和头文件\对话框类\选项设置对话框</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsDlg.h">
+      <Filter>源文件和头文件\对话框类\选项设置对话框</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralSettingsDlg.h">
+      <Filter>源文件和头文件\对话框类\选项设置对话框</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkInfoDlg.h">
+      <Filter>源文件和头文件\对话框类\NetworkInfoDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="IconSelectDlg.h">
+      <Filter>源文件和头文件\对话框类\IconSelectDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="PictureStatic.h">
+      <Filter>源文件和头文件\派生的控件类\PictureStatic</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonData.h">
+      <Filter>源文件和头文件\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>源文件和头文件\公共的类\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawCommon.h">
+      <Filter>源文件和头文件\公共的类\DrawCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="SpinEdit.h">
+      <Filter>源文件和头文件\派生的控件类\SpinEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="TabDlg.h">
+      <Filter>源文件和头文件\派生的控件类\TabDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorStatic.h">
+      <Filter>源文件和头文件\派生的控件类\ColorStatic</Filter>
+    </ClInclude>
+    <ClInclude Include="IniHelper.h">
+      <Filter>源文件和头文件\公共的类\IniHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="MainWndColorDlg.h">
+      <Filter>源文件和头文件\对话框类\颜色设置对话框</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkStatic.h">
+      <Filter>源文件和头文件\派生的控件类\LinkStatic</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskbarColorDlg.h">
+      <Filter>源文件和头文件\对话框类\颜色设置对话框</Filter>
+    </ClInclude>
+    <ClInclude Include="CalendarHelper.h">
+      <Filter>源文件和头文件\公共的类\CalendarHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="AdapterCommon.h">
+      <Filter>源文件和头文件\公共的类\AdapterCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="WinVersionHelper.h">
+      <Filter>源文件和头文件\公共的类\WinVersionHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleXML.h">
+      <Filter>源文件和头文件\公共的类\SimpleXML</Filter>
+    </ClInclude>
+    <ClInclude Include="CMFCColorDialogEx.h">
+      <Filter>源文件和头文件\对话框类\颜色设置对话框\MFCColorDialogEx</Filter>
+    </ClInclude>
+    <ClInclude Include="CTabCtrlEx.h">
+      <Filter>源文件和头文件\派生的控件类\CTabCtrlEx</Filter>
+    </ClInclude>
+    <ClInclude Include="crashtool.h">
+      <Filter>源文件和头文件\公共的类\CrashTool</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageDlg.h">
+      <Filter>源文件和头文件\对话框类\MessageDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="CVariant.h">
+      <Filter>源文件和头文件\公共的类\CVariant</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawCommonEx.h">
+      <Filter>源文件和头文件\公共的类\DrawCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="CPUUsage.h">
+      <Filter>源文件和头文件\公共的类\CPUUsage</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseDialog.h">
+      <Filter>源文件和头文件\对话框类\BaseDialog</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskbarDefaultStyle.h">
+      <Filter>源文件和头文件\公共的类\TaskbarDefaultStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="CAutoAdaptSettingsDlg.h">
+      <Filter>源文件和头文件\对话框类\选项设置对话框\AutoAdaptSettingsDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>测试</Filter>
+    </ClInclude>
+    <ClInclude Include="WIC.h">
+      <Filter>源文件和头文件\公共的类\WIC</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ListCtrlEx.cpp">
+      <Filter>源文件和头文件\派生的控件类\ListCtrlEx</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticEx.cpp">
+      <Filter>源文件和头文件\派生的控件类\StaticEx</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskBarDlg.cpp">
+      <Filter>源文件和头文件\TaskBarDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="TrafficMonitor.cpp">
+      <Filter>源文件和头文件\TrafficMonitor</Filter>
+    </ClCompile>
+    <ClCompile Include="TrafficMonitorDlg.cpp">
+      <Filter>源文件和头文件\TrafficMonitorDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件和头文件\stdafx</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneralSettingsDlg.cpp">
+      <Filter>源文件和头文件\对话框类\选项设置对话框</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWndSettingsDlg.cpp">
+      <Filter>源文件和头文件\对话框类\选项设置对话框</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskBarSettingsDlg.cpp">
+      <Filter>源文件和头文件\对话框类\选项设置对话框</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsDlg.cpp">
+      <Filter>源文件和头文件\对话框类\选项设置对话框</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkInfoDlg.cpp">
+      <Filter>源文件和头文件\对话框类\NetworkInfoDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="IconSelectDlg.cpp">
+      <Filter>源文件和头文件\对话框类\IconSelectDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="PictureStatic.cpp">
+      <Filter>源文件和头文件\派生的控件类\PictureStatic</Filter>
+    </ClCompile>
+    <ClCompile Include="Common.cpp">
+      <Filter>源文件和头文件\公共的类\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawCommon.cpp">
+      <Filter>源文件和头文件\公共的类\DrawCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="SpinEdit.cpp">
+      <Filter>源文件和头文件\派生的控件类\SpinEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="TabDlg.cpp">
+      <Filter>源文件和头文件\派生的控件类\TabDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorStatic.cpp">
+      <Filter>源文件和头文件\派生的控件类\ColorStatic</Filter>
+    </ClCompile>
+    <ClCompile Include="IniHelper.cpp">
+      <Filter>源文件和头文件\公共的类\IniHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWndColorDlg.cpp">
+      <Filter>源文件和头文件\对话框类\颜色设置对话框</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkStatic.cpp">
+      <Filter>源文件和头文件\派生的控件类\LinkStatic</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskbarColorDlg.cpp">
+      <Filter>源文件和头文件\对话框类\颜色设置对话框</Filter>
+    </ClCompile>
+    <ClCompile Include="CalendarHelper.cpp">
+      <Filter>源文件和头文件\公共的类\CalendarHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="AdapterCommon.cpp">
+      <Filter>源文件和头文件\公共的类\AdapterCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="WinVersionHelper.cpp">
+      <Filter>源文件和头文件\公共的类\WinVersionHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleXML.cpp">
+      <Filter>源文件和头文件\公共的类\SimpleXML</Filter>
+    </ClCompile>
+    <ClCompile Include="CMFCColorDialogEx.cpp">
+      <Filter>源文件和头文件\对话框类\颜色设置对话框\MFCColorDialogEx</Filter>
+    </ClCompile>
+    <ClCompile Include="CTabCtrlEx.cpp">
+      <Filter>源文件和头文件\派生的控件类\CTabCtrlEx</Filter>
+    </ClCompile>
+    <ClCompile Include="crashtool.cpp">
+      <Filter>源文件和头文件\公共的类\CrashTool</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageDlg.cpp">
+      <Filter>源文件和头文件\对话框类\MessageDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="CVariant.cpp">
+      <Filter>源文件和头文件\公共的类\CVariant</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawCommonEx.cpp">
+      <Filter>源文件和头文件\公共的类\DrawCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="CPUUsage.cpp">
+      <Filter>源文件和头文件\公共的类\CPUUsage</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseDialog.cpp">
+      <Filter>源文件和头文件\对话框类\BaseDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskbarDefaultStyle.cpp">
+      <Filter>源文件和头文件\公共的类\TaskbarDefaultStyle</Filter>
+    </ClCompile>
+    <ClCompile Include="CAutoAdaptSettingsDlg.cpp">
+      <Filter>源文件和头文件\对话框类\选项设置对话框\AutoAdaptSettingsDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>测试</Filter>
+    </ClCompile>
+    <ClCompile Include="WIC.cpp">
+      <Filter>源文件和头文件\公共的类\WIC</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TrafficMonitor.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\TrafficMonitor.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\license.bin">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\TrafficMonitor.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notifyicon.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notifyicon2.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notifyicon3.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notify_preview.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notifyicon4.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notify_preview_light.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\bitmap3.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\exit.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\info.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\lock.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\setting.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\statistics.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\close.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\pin.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\skn.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\connection.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\mouse.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\main_window.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\taskbar_window.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\notify.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\more.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\item.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\menu_icon\function.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notifyicon5.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

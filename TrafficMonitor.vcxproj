@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{09483BED-B1E9-4827-8120-A18302C84AA8}</ProjectGuid>
+    <RootNamespace>TrafficMonitor</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <ExcludePath />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <ExcludePath />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <ExcludePath />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <ExcludePath />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalOptions>$(ExternalCompilerOptions) %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="res\Acknowledgement.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AdapterCommon.h" />
+    <ClInclude Include="BaseDialog.h" />
+    <ClInclude Include="CalendarHelper.h" />
+    <ClInclude Include="CAutoAdaptSettingsDlg.h" />
+    <ClInclude Include="CMFCColorDialogEx.h" />
+    <ClInclude Include="CPUUsage.h" />
+    <ClInclude Include="crashtool.h" />
+    <ClInclude Include="CTabCtrlEx.h" />
+    <ClInclude Include="CVariant.h" />
+    <ClInclude Include="DrawCommonEx.h" />
+    <ClInclude Include="LinkStatic.h" />
+    <ClInclude Include="ColorStatic.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="CommonData.h" />
+    <ClInclude Include="DrawCommon.h" />
+    <ClInclude Include="GeneralSettingsDlg.h" />
+    <ClInclude Include="IconSelectDlg.h" />
+    <ClInclude Include="IniHelper.h" />
+    <ClInclude Include="ListCtrlEx.h" />
+    <ClInclude Include="MainWndColorDlg.h" />
+    <ClInclude Include="MainWndSettingsDlg.h" />
+    <ClInclude Include="MessageDlg.h" />
+    <ClInclude Include="NetworkInfoDlg.h" />
+    <ClInclude Include="OptionsDlg.h" />
+    <ClInclude Include="PictureStatic.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SimpleXML.h" />
+    <ClInclude Include="SpinEdit.h" />
+    <ClInclude Include="StaticEx.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TabDlg.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TaskbarColorDlg.h" />
+    <ClInclude Include="TaskbarDefaultStyle.h" />
+    <ClInclude Include="TaskBarDlg.h" />
+    <ClInclude Include="TaskBarSettingsDlg.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="TrafficMonitor.h" />
+    <ClInclude Include="TrafficMonitorDlg.h" />
+    <ClInclude Include="WIC.h" />
+    <ClInclude Include="WinVersionHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AdapterCommon.cpp" />
+    <ClCompile Include="BaseDialog.cpp" />
+    <ClCompile Include="CalendarHelper.cpp" />
+    <ClCompile Include="CAutoAdaptSettingsDlg.cpp" />
+    <ClCompile Include="CMFCColorDialogEx.cpp" />
+    <ClCompile Include="CPUUsage.cpp" />
+    <ClCompile Include="crashtool.cpp" />
+    <ClCompile Include="CTabCtrlEx.cpp" />
+    <ClCompile Include="CVariant.cpp" />
+    <ClCompile Include="DrawCommonEx.cpp" />
+    <ClCompile Include="LinkStatic.cpp" />
+    <ClCompile Include="ColorStatic.cpp" />
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="DrawCommon.cpp" />
+    <ClCompile Include="GeneralSettingsDlg.cpp" />
+    <ClCompile Include="IconSelectDlg.cpp" />
+    <ClCompile Include="IniHelper.cpp" />
+    <ClCompile Include="ListCtrlEx.cpp" />
+    <ClCompile Include="MainWndColorDlg.cpp" />
+    <ClCompile Include="MainWndSettingsDlg.cpp" />
+    <ClCompile Include="MessageDlg.cpp" />
+    <ClCompile Include="NetworkInfoDlg.cpp" />
+    <ClCompile Include="OptionsDlg.cpp" />
+    <ClCompile Include="PictureStatic.cpp" />
+    <ClCompile Include="SimpleXML.cpp" />
+    <ClCompile Include="SpinEdit.cpp" />
+    <ClCompile Include="StaticEx.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TabDlg.cpp" />
+    <ClCompile Include="TaskbarColorDlg.cpp" />
+    <ClCompile Include="TaskbarDefaultStyle.cpp" />
+    <ClCompile Include="TaskBarDlg.cpp" />
+    <ClCompile Include="TaskBarSettingsDlg.cpp" />
+    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="TrafficMonitor.cpp" />
+    <ClCompile Include="TrafficMonitorDlg.cpp" />
+    <ClCompile Include="WIC.cpp" />
+    <ClCompile Include="WinVersionHelper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TrafficMonitor.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\license.bin" />
+    <None Include="res\TrafficMonitor.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bitmap3.bmp" />
+    <Image Include="res\menu_icon\close.ico" />
+    <Image Include="res\menu_icon\connection.ico" />
+    <Image Include="res\menu_icon\exit.ico" />
+    <Image Include="res\menu_icon\function.ico" />
+    <Image Include="res\menu_icon\info.ico" />
+    <Image Include="res\menu_icon\item.ico" />
+    <Image Include="res\menu_icon\lock.ico" />
+    <Image Include="res\menu_icon\main_window.ico" />
+    <Image Include="res\menu_icon\more.ico" />
+    <Image Include="res\menu_icon\mouse.ico" />
+    <Image Include="res\menu_icon\notify.ico" />
+    <Image Include="res\menu_icon\pin.ico" />
+    <Image Include="res\menu_icon\setting.ico" />
+    <Image Include="res\menu_icon\skn.ico" />
+    <Image Include="res\menu_icon\statistics.ico" />
+    <Image Include="res\menu_icon\taskbar_window.ico" />
+    <Image Include="res\notifyicon.ico" />
+    <Image Include="res\notifyicon2.ico" />
+    <Image Include="res\notifyicon3.ico" />
+    <Image Include="res\notifyicon4.ico" />
+    <Image Include="res\notifyicon5.ico" />
+    <Image Include="res\notify_preview.bmp" />
+    <Image Include="res\notify_preview_light.bmp" />
+    <Image Include="res\TrafficMonitor.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="TrafficMonitor.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
