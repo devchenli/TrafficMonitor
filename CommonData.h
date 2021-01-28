@@ -42,12 +42,9 @@ struct DispStrings		//显示的文本
 enum class DoubleClickAction
 {
 	CONNECTION_INFO,	//连接详情
-	HISTORY_TRAFFIC,	//历史流量统计
-	SHOW_MORE_INFO,		//显示更多信息
 	OPTIONS,			//选项设置
 	TASK_MANAGER,		//任务管理器
     SEPCIFIC_APP,       //指定应用程序
-	CHANGE_SKIN,		//更换皮肤
 	NONE				//不执行任何动作
 };
 

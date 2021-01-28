@@ -171,12 +171,9 @@ BOOL CMainWndSettingsDlg::OnInitDialog()
 	((CButton*)GetDlgItem(IDC_SPECIFY_EACH_ITEM_COLOR_CHECK))->SetCheck(m_data.specify_each_item_color);
 
 	m_double_click_combo.AddString(CCommon::LoadText(IDS_OPEN_CONNECTION_DETIAL));
-	m_double_click_combo.AddString(CCommon::LoadText(IDS_OPEN_HISTORICAL_TRAFFIC));
-	m_double_click_combo.AddString(CCommon::LoadText(IDS_SHOW_HIDE_MORE_INFO));
 	m_double_click_combo.AddString(CCommon::LoadText(IDS_OPEN_OPTION_SETTINGS));
 	m_double_click_combo.AddString(CCommon::LoadText(IDS_OPEN_TASK_MANAGER));
     m_double_click_combo.AddString(CCommon::LoadText(IDS_SPECIFIC_APP));
-    m_double_click_combo.AddString(CCommon::LoadText(IDS_CHANGE_SKIN));
 	m_double_click_combo.AddString(CCommon::LoadText(IDS_NONE));
 	m_double_click_combo.SetCurSel(static_cast<int>(m_data.double_click_action));
 

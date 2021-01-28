@@ -762,9 +762,6 @@ void CTaskBarDlg::OnInitMenu(CMenu* pMenu)
 	case DoubleClickAction::CONNECTION_INFO:
 		pMenu->SetDefaultItem(ID_NETWORK_INFO);
 		break;
-	case DoubleClickAction::SHOW_MORE_INFO:
-		pMenu->SetDefaultItem(ID_SHOW_CPU_MEMORY2);
-		break;
 	case DoubleClickAction::OPTIONS:
 		pMenu->SetDefaultItem(ID_OPTIONS2);
 		break;
@@ -809,9 +806,6 @@ void CTaskBarDlg::OnLButtonDblClk(UINT nFlags, CPoint point)
 	{
 	case DoubleClickAction::CONNECTION_INFO:
 		SendMessage(WM_COMMAND,ID_NETWORK_INFO);		//双击后弹出“连接详情”对话框
-		break;
-	case DoubleClickAction::SHOW_MORE_INFO:
-		PostMessage(WM_COMMAND, ID_SHOW_CPU_MEMORY2);		//切换显示CPU和内存利用率
 		break;
 	case DoubleClickAction::OPTIONS:
 		SendMessage(WM_COMMAND, ID_OPTIONS2);		//双击后弹出“选项设置”对话框

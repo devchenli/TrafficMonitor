@@ -1125,15 +1125,9 @@ void CTrafficMonitorDlg::OnRButtonUp(UINT nFlags, CPoint point)
 	case DoubleClickAction::CONNECTION_INFO:
 		pContextMenu->SetDefaultItem(ID_NETWORK_INFO);
 		break;
-	case DoubleClickAction::SHOW_MORE_INFO:
-		pContextMenu->SetDefaultItem(ID_SHOW_CPU_MEMORY);
-		break;
 	case DoubleClickAction::OPTIONS:
 		pContextMenu->SetDefaultItem(ID_OPTIONS);
 		break;
-	//case DoubleClickAction::CHANGE_SKIN:
-	//	pContextMenu->SetDefaultItem(ID_CHANGE_SKIN);
-	//	break;
 	default:
 		pContextMenu->SetDefaultItem(-1);
 		break;
@@ -1650,9 +1644,6 @@ void CTrafficMonitorDlg::OnLButtonDblClk(UINT nFlags, CPoint point)
 	{
 	case DoubleClickAction::CONNECTION_INFO:
 		OnNetworkInfo();			//双击后弹出“连接详情”对话框
-		break;
-	case DoubleClickAction::SHOW_MORE_INFO:
-		OnShowCpuMemory();			//切换显示CPU和内存利用率
 		break;
 	case DoubleClickAction::OPTIONS:
 		OnOptions();				//双击后弹出“选项设置”对话框

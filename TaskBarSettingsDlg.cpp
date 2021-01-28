@@ -244,8 +244,6 @@ BOOL CTaskBarSettingsDlg::OnInitDialog()
 	}
 
 	m_double_click_combo.AddString(CCommon::LoadText(IDS_OPEN_CONNECTION_DETIAL));
-	m_double_click_combo.AddString(CCommon::LoadText(IDS_OPEN_HISTORICAL_TRAFFIC));
-	m_double_click_combo.AddString(CCommon::LoadText(IDS_SHOW_HIDE_CPU_MEMORY));
 	m_double_click_combo.AddString(CCommon::LoadText(IDS_OPEN_OPTION_SETTINGS));
 	m_double_click_combo.AddString(CCommon::LoadText(IDS_OPEN_TASK_MANAGER));
 	m_double_click_combo.AddString(CCommon::LoadText(IDS_SPECIFIC_APP));
@@ -524,16 +522,7 @@ afx_msg LRESULT CTaskBarSettingsDlg::OnStaticClicked(WPARAM wParam, LPARAM lPara
 		}
 		break;
 	}
-	//case IDC_TRANSPARENT_COLOR_STATIC:		//点击“透明色”时
-	//{
-	//	CMFCColorDialogEx colorDlg(m_data.transparent_color, 0, this);
-	//	if (colorDlg.DoModal() == IDOK)
-	//	{
-	//		m_data.transparent_color = colorDlg.GetColor();
-	//		DrawStaticColor();
-	//	}
-	//	break;
-	//}
+
 	case IDC_TEXT_COLOR_STATIC3:		//点击“状态条颜色”时
 	{
 		CMFCColorDialogEx colorDlg(m_data.status_bar_color, 0, this);
@@ -609,18 +598,6 @@ void CTaskBarSettingsDlg::OnBnClickedShowToolTipChk()
     // TODO: 在此添加控件通知处理程序代码
     m_data.show_tool_tip = (((CButton*)GetDlgItem(IDC_SHOW_TOOL_TIP_CHK))->GetCheck() != 0);
 }
-
-//void CTaskBarSettingsDlg::OnBnClickedSetLightMode()
-//{
-//	// TODO: 在此添加控件通知处理程序代码
-//	for (int i{}; i < TASKBAR_COLOR_NUM; i++)
-//		m_data.text_colors[i] = RGB(0, 0, 0);
-//	m_data.back_color = RGB(210, 210, 210);
-//	m_data.transparent_color = RGB(210, 210, 210);
-//	m_data.status_bar_color = RGB(165, 165, 165);
-//	DrawStaticColor();
-//}
-
 
 void CTaskBarSettingsDlg::OnDefaultStyle1()
 {
