@@ -85,7 +85,6 @@ BEGIN_MESSAGE_MAP(CMainWndSettingsDlg, CTabDlg)
 	ON_EN_CHANGE(IDC_DOWNLOAD_EDIT, &CMainWndSettingsDlg::OnEnChangeDownloadEdit)
 	ON_EN_CHANGE(IDC_CPU_EDIT, &CMainWndSettingsDlg::OnEnChangeCpuEdit)
 	ON_EN_CHANGE(IDC_MEMORY_EDIT, &CMainWndSettingsDlg::OnEnChangeMemoryEdit)
-	//ON_BN_CLICKED(IDC_SET_COLOR_BUTTON1, &CMainWndSettingsDlg::OnBnClickedSetColorButton1)
 	ON_BN_CLICKED(IDC_SET_DEFAULT_BUTTON, &CMainWndSettingsDlg::OnBnClickedSetDefaultButton)
 	ON_BN_CLICKED(IDC_SET_FONT_BUTTON, &CMainWndSettingsDlg::OnBnClickedSetFontButton)
 	ON_BN_CLICKED(IDC_SWITCH_UP_DOWN_CHECK, &CMainWndSettingsDlg::OnBnClickedSwitchUpDownCheck)
@@ -116,9 +115,6 @@ BOOL CMainWndSettingsDlg::OnInitDialog()
 
 	//初始化各控件状态
 	SetDlgItemText(IDC_FONT_NAME_EDIT, m_data.font.name);
-	//wchar_t buff[16];
-	//swprintf_s(buff, L"%d", m_data.font_size);
-	//SetDlgItemText(IDC_FONT_SIZE_EDIT, buff);
 	m_font_size_edit.SetRange(5, 72);
 	m_font_size_edit.SetValue(m_data.font.size);
 
