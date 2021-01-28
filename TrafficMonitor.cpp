@@ -32,8 +32,6 @@ void CTrafficMonitorApp::LoadConfig()
 	CIniHelper ini{ m_config_path };
 
 	//常规设置
-	m_general_data.allow_skin_cover_font = ini.GetBool(_T("general"), _T("allow_skin_cover_font"), true);
-	m_general_data.allow_skin_cover_text = ini.GetBool(_T("general"), _T("allow_skin_cover_text"), true);
 	m_general_data.language = static_cast<Language>(ini.GetInt(_T("general"), _T("language"), 0));
 	m_general_data.show_all_interface = ini.GetBool(L"general", L"show_all_interface", false);
 	//载入获取CPU利用率的方式，默认使用GetSystemTimes获取
@@ -174,8 +172,6 @@ void CTrafficMonitorApp::SaveConfig()
 	CIniHelper ini{ m_config_path };
 
 	//常规设置
-	ini.WriteBool(_T("general"), _T("allow_skin_cover_font"), m_general_data.allow_skin_cover_font);
-	ini.WriteBool(_T("general"), _T("allow_skin_cover_text"), m_general_data.allow_skin_cover_text);
 	ini.WriteInt(_T("general"), _T("language"), static_cast<int>(m_general_data.language));
 	ini.WriteBool(L"general", L"show_all_interface", m_general_data.show_all_interface);
 	ini.WriteBool(L"general", L"get_cpu_usage_by_cpu_times", m_general_data.m_get_cpu_usage_by_cpu_times);
@@ -319,20 +315,6 @@ void CTrafficMonitorApp::SaveGlobalConfig()
 {
 	CIniHelper ini{ m_module_dir + L"global_cfg.ini" };
 	ini.WriteBool(L"config", L"portable_mode", m_general_data.portable_mode);
-
-	//检查是否保存成功
-    if (!ini.Save())
-    {
-        //if (m_cannot_save_global_config_warning)
-        //{
-        //    CString info;
-        //    info.LoadString(IDS_CONNOT_SAVE_CONFIG_WARNING);
-        //    info.Replace(_T("<%file_path%>"), m_module_dir.c_str());
-        //    AfxMessageBox(info, MB_ICONWARNING);
-        //}
-        //m_cannot_save_global_config_warning = false;
-        //return;
-    }
 }
 
 int CTrafficMonitorApp::DPI(int pixel)

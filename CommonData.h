@@ -171,8 +171,6 @@ struct TaskBarSettingData : public PublicSettingData
 struct GeneralSettingData
 {
 	bool auto_run{ false };
-	bool allow_skin_cover_font{ true };
-	bool allow_skin_cover_text{ true };
 	//通知消息
 	bool traffic_tip_enable{ false };		//是否启用流量超出时提示
 	int traffic_tip_value;					//要提示的流量临界值
