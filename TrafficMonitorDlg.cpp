@@ -65,7 +65,6 @@ BEGIN_MESSAGE_MAP(CTrafficMonitorDlg, CDialogEx)
 	ON_WM_DESTROY()
 	ON_COMMAND(ID_SHOW_CPU_MEMORY, &CTrafficMonitorDlg::OnShowCpuMemory)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_CPU_MEMORY, &CTrafficMonitorDlg::OnUpdateShowCpuMemory)
-	ON_COMMAND(ID_MOUSE_PENETRATE, &CTrafficMonitorDlg::OnMousePenetrate)
 	ON_COMMAND(ID_SHOW_TASK_BAR_WND, &CTrafficMonitorDlg::OnShowTaskBarWnd)
 	ON_COMMAND(ID_SHOW_CPU_MEMORY2, &CTrafficMonitorDlg::OnShowCpuMemory2)
 	ON_REGISTERED_MESSAGE(m_WM_TASKBARCREATED, &CTrafficMonitorDlg::OnTaskBarCreated)
@@ -1493,26 +1492,6 @@ void CTrafficMonitorDlg::OnUpdateShowCpuMemory(CCmdUI *pCmdUI)
 }
 
 
-void CTrafficMonitorDlg::OnMousePenetrate()
-{	
-	if (!theApp.m_cfg_data.m_show_notify_icon)	//如果通知图标没有显示，则将它显示出来，否则无法呼出右键菜单
-	{
-		//添加通知栏图标
-		AddNotifyIcon();
-		theApp.m_cfg_data.m_show_notify_icon = true;
-	}
-
-	//设置鼠标穿透后，弹出消息提示用户如何关闭鼠标穿透
-	if (theApp.m_show_mouse_panetrate_tip)
-	{
-		if (MessageBox(CCommon::LoadText(IDS_MOUSE_PENETRATE_TIP_INFO), NULL, MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL)		//点击“取消”后不再提示
-		{
-			theApp.m_show_mouse_panetrate_tip = false;
-		}
-	}
-
-	theApp.SaveConfig();
-}
 
 void CTrafficMonitorDlg::OnShowTaskBarWnd()
 {
