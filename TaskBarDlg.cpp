@@ -792,14 +792,6 @@ void CTaskBarDlg::OnLButtonDblClk(UINT nFlags, CPoint point)
 
 void CTaskBarDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	//if (nIDEvent == TASKBAR_TIMER)
-	//{
-	//	AdjustWindowPos();
-	//	//ShowInfo();
-	//	Invalidate(FALSE);
-	//}
-
 	CDialogEx::OnTimer(nIDEvent);
 }
 

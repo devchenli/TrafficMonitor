@@ -294,14 +294,9 @@
     <Image Include="res\menu_icon\notify.ico" />
     <Image Include="res\menu_icon\pin.ico" />
     <Image Include="res\menu_icon\setting.ico" />
-    <Image Include="res\menu_icon\skn.ico" />
     <Image Include="res\menu_icon\statistics.ico" />
     <Image Include="res\menu_icon\taskbar_window.ico" />
     <Image Include="res\notifyicon.ico" />
-    <Image Include="res\notifyicon2.ico" />
-    <Image Include="res\notifyicon3.ico" />
-    <Image Include="res\notifyicon4.ico" />
-    <Image Include="res\notifyicon5.ico" />
     <Image Include="res\notify_preview.bmp" />
     <Image Include="res\notify_preview_light.bmp" />
     <Image Include="res\TrafficMonitor.ico" />

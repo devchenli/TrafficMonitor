@@ -349,20 +349,14 @@ void CTrafficMonitorDlg::_OnOptions(int tab)
 {
 	COptionsDlg optionsDlg(tab);
 	//将选项设置数据传递给选项设置对话框
-	//optionsDlg.m_tab1_dlg.m_data = theApp.m_main_wnd_data;
 	optionsDlg.m_tab_taskbar_dlg.m_data = theApp.m_taskbar_data;
 	optionsDlg.m_tab_general_dlg.m_data = theApp.m_general_data;
-	//optionsDlg.m_tab1_dlg.m_text_disable = m_layout_data.no_text;
 
 	if (optionsDlg.DoModal() == IDOK)
 	{
-	//	theApp.m_main_wnd_data = optionsDlg.m_tab1_dlg.m_data;
 		theApp.m_taskbar_data = optionsDlg.m_tab_taskbar_dlg.m_data;
 		theApp.m_general_data = optionsDlg.m_tab_general_dlg.m_data;
 
-		ApplySettings();
-
-		//CTaskBarDlg::SaveConfig();
 		if (IsTaskbarWndValid())
 		{
 			m_tBarDlg->ApplySettings();
@@ -405,10 +399,6 @@ void CTrafficMonitorDlg::SetItemPosition()
 bool CTrafficMonitorDlg::IsTaskbarWndValid() const
 {
     return m_tBarDlg != nullptr && ::IsWindow(m_tBarDlg->GetSafeHwnd());
-}
-
-void CTrafficMonitorDlg::ApplySettings()
-{
 }
 
 // CTrafficMonitorDlg 消息处理程序

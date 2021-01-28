@@ -109,13 +109,7 @@ protected:
 
 	void SetItemPosition();		//设置显示的4个项目的位置
 
-	void SetTextColor();
-	void SetTextFont();
-
     bool IsTaskbarWndValid() const;
-
-public:
-	void ApplySettings();
 
 protected:
 	// 生成的消息映射函数
