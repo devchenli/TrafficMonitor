@@ -439,7 +439,6 @@ void CTrafficMonitorApp::InitMenuResourse()
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSubMenu(0)->GetSafeHmenu(), 0, TRUE, GetMenuIcon(IDI_CONNECTION));
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSubMenu(0)->GetSafeHmenu(), 12, TRUE, GetMenuIcon(IDI_FUNCTION));
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_NETWORK_INFO, FALSE, GetMenuIcon(IDI_INFO));
-    CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_ALWAYS_ON_TOP, FALSE, GetMenuIcon(IDI_PIN));
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_MOUSE_PENETRATE, FALSE, GetMenuIcon(IDI_MOUSE));
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_LOCK_WINDOW_POS, FALSE, GetMenuIcon(IDI_LOCK));
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_SHOW_NOTIFY_ICON, FALSE, GetMenuIcon(IDI_NOTIFY));
