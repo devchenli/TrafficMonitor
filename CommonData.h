@@ -98,9 +98,8 @@ struct MainConfigData
 	int m_transparency{ 100 };			//窗口透明度
 	bool m_lock_window_pos{ false };	//锁定窗口位置
 	bool m_show_more_info{ false };		//显示更多信息
-	bool m_mouse_penetrate{ false };	//鼠标穿透
 	bool m_show_task_bar_wnd{ false };	//显示任务栏窗口
-	bool m_hide_main_window;			//隐藏主窗口
+
 	bool m_show_notify_icon{ true };	//显示通知区域图标
 	//bool m_tbar_show_cpu_memory;		//任务栏窗口显示CPU和内存利用率
 	unsigned int m_tbar_display_item{ TDI_UP | TDI_DOWN };		//任务栏窗口显示的项目
@@ -274,9 +273,6 @@ struct SkinData
 	LayoutData layout;
 	COLORREF text_colors[MAIN_WND_COLOR_NUM]{};		//文字颜色（分别为“上传”、“下载”、“CPU”、“内存”的颜色）
 	bool specify_each_item_color;		//是否指定每个项目的颜色
-	//wstring skin_author;
 	DispStrings disp_str;
-	//wstring font_name;
-	//int font_size
 	FontInfo font;			//字体
 };

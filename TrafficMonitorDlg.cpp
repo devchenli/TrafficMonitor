@@ -53,8 +53,6 @@ BEGIN_MESSAGE_MAP(CTrafficMonitorDlg, CDialogEx)
 	ON_WM_RBUTTONUP()
 	ON_WM_LBUTTONDOWN()
 	ON_COMMAND(ID_NETWORK_INFO, &CTrafficMonitorDlg::OnNetworkInfo)
-	ON_COMMAND(ID_ALWAYS_ON_TOP, &CTrafficMonitorDlg::OnAlwaysOnTop)
-	ON_UPDATE_COMMAND_UI(ID_ALWAYS_ON_TOP, &CTrafficMonitorDlg::OnUpdateAlwaysOnTop)
 	ON_WM_INITMENUPOPUP()
 	ON_COMMAND(ID_TRANSPARENCY_100, &CTrafficMonitorDlg::OnTransparency100)
 	ON_COMMAND(ID_TRANSPARENCY_80, &CTrafficMonitorDlg::OnTransparency80)
@@ -72,22 +70,14 @@ BEGIN_MESSAGE_MAP(CTrafficMonitorDlg, CDialogEx)
 	ON_COMMAND(ID_SHOW_CPU_MEMORY, &CTrafficMonitorDlg::OnShowCpuMemory)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_CPU_MEMORY, &CTrafficMonitorDlg::OnUpdateShowCpuMemory)
 	ON_COMMAND(ID_MOUSE_PENETRATE, &CTrafficMonitorDlg::OnMousePenetrate)
-	ON_UPDATE_COMMAND_UI(ID_MOUSE_PENETRATE, &CTrafficMonitorDlg::OnUpdateMousePenetrate)
 	ON_COMMAND(ID_SHOW_TASK_BAR_WND, &CTrafficMonitorDlg::OnShowTaskBarWnd)
 	ON_COMMAND(ID_SHOW_CPU_MEMORY2, &CTrafficMonitorDlg::OnShowCpuMemory2)
-	//ON_COMMAND(ID_AUTO_RUN_WHEN_START, &CTrafficMonitorDlg::OnAutoRunWhenStart)
-	ON_COMMAND(ID_SHOW_MAIN_WND, &CTrafficMonitorDlg::OnShowMainWnd)
-	ON_UPDATE_COMMAND_UI(ID_SHOW_MAIN_WND, &CTrafficMonitorDlg::OnUpdateShowMainWnd)
-	//ON_UPDATE_COMMAND_UI(ID_AUTO_RUN_WHEN_START, &CTrafficMonitorDlg::OnUpdateAutoRunWhenStart)
 	ON_REGISTERED_MESSAGE(m_WM_TASKBARCREATED, &CTrafficMonitorDlg::OnTaskBarCreated)
 	ON_WM_MOUSEMOVE()
 	ON_WM_LBUTTONDBLCLK()
 	ON_COMMAND(ID_OPTIONS, &CTrafficMonitorDlg::OnOptions)
 	ON_COMMAND(ID_OPTIONS2, &CTrafficMonitorDlg::OnOptions2)
 	ON_MESSAGE(WM_EXITMENULOOP, &CTrafficMonitorDlg::OnExitmenuloop)
-	ON_COMMAND(ID_CHANGE_NOTIFY_ICON, &CTrafficMonitorDlg::OnChangeNotifyIcon)
-	ON_COMMAND(ID_ALOW_OUT_OF_BORDER, &CTrafficMonitorDlg::OnAlowOutOfBorder)
-	ON_UPDATE_COMMAND_UI(ID_ALOW_OUT_OF_BORDER, &CTrafficMonitorDlg::OnUpdateAlowOutOfBorder)
 	ON_MESSAGE(WM_TASKBAR_MENU_POPED_UP, &CTrafficMonitorDlg::OnTaskbarMenuPopedUp)
 	ON_COMMAND(ID_SHOW_NET_SPEED, &CTrafficMonitorDlg::OnShowNetSpeed)
 	ON_WM_QUERYENDSESSION()
@@ -239,69 +229,6 @@ void CTrafficMonitorDlg::SetTransparency(int transparency)
 	SetLayeredWindowAttributes(0, transparency * 255 / 100, LWA_ALPHA);  //透明度取值范围为0~255
 }
 
-void CTrafficMonitorDlg::SetAlwaysOnTop()
-{
-	//if (!m_is_foreground_fullscreen || (m_is_foreground_fullscreen && !theApp.m_main_wnd_data.hide_main_wnd_when_fullscreen))
-	//{
-	//	if (m_always_on_top)
-	//		SetWindowPos(&wndTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);			//设置置顶
-	//	else
-	//		SetWindowPos(&wndNoTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);		//取消置顶
-	//}
-	if (theApp.m_cfg_data.m_hide_main_window)
-		return;
-	else if (theApp.m_main_wnd_data.hide_main_wnd_when_fullscreen && m_is_foreground_fullscreen)		//当设置有程序全屏时隐藏悬浮窗且有程序在全屏运行时，不执行置顶操作
-		return;
-
-	if (theApp.m_cfg_data.m_always_on_top)
-		SetWindowPos(&wndTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);			//设置置顶
-	else
-		SetWindowPos(&wndNoTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);		//取消置顶
-
-}
-
-void CTrafficMonitorDlg::SetMousePenetrate()
-{
-	if (theApp.m_cfg_data.m_mouse_penetrate)
-	{
-		SetWindowLong(m_hWnd, GWL_EXSTYLE, GetWindowLong(m_hWnd, GWL_EXSTYLE) | WS_EX_TRANSPARENT);		//设置鼠标穿透
-	}
-	else
-	{
-		SetWindowLong(m_hWnd, GWL_EXSTYLE, GetWindowLong(m_hWnd, GWL_EXSTYLE) & (~WS_EX_TRANSPARENT));		//取消鼠标穿透
-	}
-}
-
-void CTrafficMonitorDlg::CheckWindowPos()
-{
-	if (!theApp.m_cfg_data.m_alow_out_of_border)
-	{
-		CRect rect;
-		GetWindowRect(rect);
-		if (m_screen_rect.Width() <= rect.Width() || m_screen_rect.Height() <= rect.Height())
-			return;
-		if (rect.left < m_screen_rect.left)
-		{
-			rect.MoveToX(m_screen_rect.left);
-			MoveWindow(rect);
-		}
-		if (rect.top < m_screen_rect.top)
-		{
-			rect.MoveToY(m_screen_rect.top);
-			MoveWindow(rect);
-		}
-		if (rect.right > m_screen_rect.right)
-		{
-			rect.MoveToX(m_screen_rect.right - rect.Width());
-			MoveWindow(rect);
-		}
-		if (rect.bottom > m_screen_rect.bottom)
-		{
-			rect.MoveToY(m_screen_rect.bottom - rect.Height());
-			MoveWindow(rect);
-		}
-	}
-}
 
 void CTrafficMonitorDlg::GetScreenSize()
 {
@@ -706,8 +633,8 @@ BOOL CTrafficMonitorDlg::OnInitDialog()
 
 	IniConnection();	//初始化连接
 
-	//如果启动时设置了鼠标穿透或隐藏主窗口，并且没有显示任务栏窗口，则显示通知区图标
-	if ((theApp.m_cfg_data.m_mouse_penetrate || theApp.m_cfg_data.m_hide_main_window) && !theApp.m_cfg_data.m_show_task_bar_wnd)
+	//如果启动时没有显示任务栏窗口，则显示通知区图标
+	if (!theApp.m_cfg_data.m_show_task_bar_wnd)
 		theApp.m_cfg_data.m_show_notify_icon = true;
 
 	//载入通知区图标
@@ -758,7 +685,6 @@ BOOL CTrafficMonitorDlg::OnInitDialog()
 	SetItemPosition();
 	if (theApp.m_cfg_data.m_position_x != -1 && theApp.m_cfg_data.m_position_y != -1)
 		SetWindowPos(nullptr, theApp.m_cfg_data.m_position_x, theApp.m_cfg_data.m_position_y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
-	CheckWindowPos();
 
 	//设置字体
 	SetTextFont();
@@ -777,9 +703,8 @@ BOOL CTrafficMonitorDlg::OnInitDialog()
 	//设置获取CPU利用率的方式
 	m_cpu_usage.SetUseCPUTimes(theApp.m_general_data.m_get_cpu_usage_by_cpu_times);
 
-	//如果程序启动时设置了隐藏主窗口，或窗口的位置在左上角，则先将其不透明度设为0
-	if (theApp.m_cfg_data.m_hide_main_window || (theApp.m_cfg_data.m_position_x == 0 && theApp.m_cfg_data.m_position_y == 0))
-		SetTransparency(0);
+	//如果程序启动时设置了隐藏主窗口将其不透明度设为0
+	SetTransparency(0);
 
 	SetTimer(TASKBAR_TIMER, 100, NULL);
 
@@ -958,11 +883,8 @@ void CTrafficMonitorDlg::OnTimer(UINT_PTR nIDEvent)
         {
             //将设置窗口置顶的处理放在这里是用于解决
             //放在初始化函数中可能会出现设置置顶无效的问题
-            SetAlwaysOnTop();		//设置窗口置顶
-            SetMousePenetrate();	//设置鼠标穿透
-            if (theApp.m_cfg_data.m_hide_main_window)	//设置隐藏主窗口
-                ShowWindow(SW_HIDE);
-
+         
+			ShowWindow(SW_HIDE);//设置隐藏主窗口
             //打开任务栏窗口
             if (theApp.m_cfg_data.m_show_task_bar_wnd && m_tBarDlg == nullptr)
                 OpenTaskBarWnd();
@@ -977,69 +899,9 @@ void CTrafficMonitorDlg::OnTimer(UINT_PTR nIDEvent)
             m_first_start = false;
         }
 
-        if (theApp.m_cfg_data.m_always_on_top && !theApp.m_cfg_data.m_hide_main_window)
-        {
-            //每隔1秒钟就判断一下前台窗口是否全屏
-            m_is_foreground_fullscreen = CCommon::IsForegroundFullscreen();
-            if (theApp.m_main_wnd_data.hide_main_wnd_when_fullscreen)		//当设置了全屏时隐藏悬浮窗时
-            {
-                if (m_is_foreground_fullscreen || theApp.m_cfg_data.m_hide_main_window)
-                    ShowWindow(SW_HIDE);
-                else
-                    ShowWindow(SW_RESTORE);
-            }
-            else			//如果没有设置全屏时隐藏悬浮窗，则如果有程序进入全屏状态，则设置一次窗口置顶
-            {
-                static bool last_foreground_fullscreen;
-                if (!last_foreground_fullscreen && m_is_foreground_fullscreen)
-                {
-                    SetAlwaysOnTop();
-                }
-                last_foreground_fullscreen = m_is_foreground_fullscreen;
-            }
-        }
-
-        if (!m_menu_popuped)
-        {
-            //程序启动后若干秒的时候根据设置重新执行“总是置顶”、“鼠标穿透”和“隐藏主窗口”的操作，防止设置没有生效
-            if (m_timer_cnt == 5 || m_timer_cnt == 9)
-            {
-                if (!theApp.m_cfg_data.m_hide_main_window)
-                {
-                    SetAlwaysOnTop();
-                    SetMousePenetrate();
-                }
-                else
-                {
-                    ShowWindow(SW_HIDE);
-                }
-            }
-
-            if (m_timer_cnt % 300 == 299 && !theApp.m_cfg_data.m_hide_main_window && theApp.m_cfg_data.m_always_on_top)
-            {
-                SetAlwaysOnTop();		//每5分钟执行一次设置窗口置顶
-            }
-        }
-
-        if (m_timer_cnt % 30 == 26)		//每隔30秒钟检测一次窗口位置，当窗口位置发生变化时保存设置
-        {
-            static int last_pos_x{ -1 }, last_pos_y{ -1 };
-            if (last_pos_x != theApp.m_cfg_data.m_position_x || last_pos_y != theApp.m_cfg_data.m_position_y)
-            {
-                theApp.SaveConfig();
-                last_pos_x = theApp.m_cfg_data.m_position_x;
-                last_pos_y = theApp.m_cfg_data.m_position_y;
-            }
-        }
-
-        if (m_timer_cnt % 2 == 1)		//每隔2秒钟获取一次屏幕区域
-        {
-            GetScreenSize();
-            CheckWindowPos();
-        }
 
         //只有主窗口和任务栏窗口至少有一个显示时才执行下面的处理
-        if (!theApp.m_cfg_data.m_hide_main_window || theApp.m_cfg_data.m_show_task_bar_wnd)
+        if (theApp.m_cfg_data.m_show_task_bar_wnd)
         {
             //每隔10秒钟检测一次是否可以嵌入任务栏
             if (IsTaskbarWndValid() && m_timer_cnt % 10 == 1)
@@ -1308,22 +1170,6 @@ void CTrafficMonitorDlg::OnNetworkInfo()
 }
 
 
-void CTrafficMonitorDlg::OnAlwaysOnTop()
-{
-	// TODO: 在此添加命令处理程序代码
-	theApp.m_cfg_data.m_always_on_top = !theApp.m_cfg_data.m_always_on_top;
-	SetAlwaysOnTop();
-	theApp.SaveConfig();
-}
-
-
-void CTrafficMonitorDlg::OnUpdateAlwaysOnTop(CCmdUI *pCmdUI)
-{
-	// TODO: 在此添加命令更新用户界面处理程序代码
-	pCmdUI->SetCheck(theApp.m_cfg_data.m_always_on_top);
-}
-
-
 //此函数用于使得 OnUpdatexxxxx(CCmdUI *pCmdUI) 函数在基于对话框程序中有效
 void CTrafficMonitorDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 {
@@ -1515,7 +1361,7 @@ void CTrafficMonitorDlg::OnInitMenu(CMenu* pMenu)
 	default: break;
 	}
 
-	if(!theApp.m_cfg_data.m_show_task_bar_wnd && (theApp.m_cfg_data.m_hide_main_window || theApp.m_cfg_data.m_mouse_penetrate))	//如果没有显示任务栏窗口，且隐藏了主窗口或设置了鼠标穿透，则禁用“显示通知区图标”菜单项
+	if(!theApp.m_cfg_data.m_show_task_bar_wnd)	//如果没有显示任务栏窗口，则禁用“显示通知区图标”菜单项
 		pMenu->EnableMenuItem(ID_SHOW_NOTIFY_ICON, MF_BYCOMMAND | MF_GRAYED);
 	else
 		pMenu->EnableMenuItem(ID_SHOW_NOTIFY_ICON, MF_BYCOMMAND | MF_ENABLED);
@@ -1569,8 +1415,6 @@ void CTrafficMonitorDlg::OnMove(int x, int y)
 		theApp.m_cfg_data.m_position_y = y;
 	}
 
-	//确保窗口不会超出屏幕范围
-	CheckWindowPos();
 }
 
 
@@ -1601,25 +1445,6 @@ afx_msg LRESULT CTrafficMonitorDlg::OnNotifyIcon(WPARAM wParam, LPARAM lParam)
 
 	}
 
-	if (lParam == WM_LBUTTONDOWN)
-	{
-		if (!theApp.m_cfg_data.m_hide_main_window)
-		{
-			if (dialog_exist)		//有打开的对话框时，点击通知区图标后将焦点设置到对话框
-			{
-				::SetForegroundWindow(handle);
-			}
-			else		//没有打开的对话框时，则显示主窗口
-			{
-				ShowWindow(SW_RESTORE);
-				theApp.m_cfg_data.m_hide_main_window = false;
-				SetForegroundWindow();
-				SetAlwaysOnTop();
-				CheckWindowPos();
-				theApp.SaveConfig();
-			}
-		}
-	}
 	if (lParam == WM_RBUTTONUP && !dialog_exist)
 	{
 		//在通知区点击右键弹出右键菜单
@@ -1632,7 +1457,6 @@ afx_msg LRESULT CTrafficMonitorDlg::OnNotifyIcon(WPARAM wParam, LPARAM lParam)
         theApp.m_main_menu.GetSubMenu(0)->SetDefaultItem(-1);		//设置没有默认菜单项
         theApp.m_main_menu.GetSubMenu(0)->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point1.x, point1.y, this); //在指定位置显示弹出菜单
 
-		CheckWindowPos();
 	}
 	if (lParam == WM_LBUTTONDBLCLK)
 	{
@@ -1643,10 +1467,7 @@ afx_msg LRESULT CTrafficMonitorDlg::OnNotifyIcon(WPARAM wParam, LPARAM lParam)
 		else		//没有打开的对话框时，则显示主窗口
 		{
 			ShowWindow(SW_RESTORE);
-			theApp.m_cfg_data.m_hide_main_window = false;
 			SetForegroundWindow();
-			SetAlwaysOnTop();
-			CheckWindowPos();
 			theApp.SaveConfig();
 		}
 	}
@@ -1698,7 +1519,6 @@ void CTrafficMonitorDlg::OnShowCpuMemory()
 		rect.right = rect.left + m_layout_data.width_s;
 		rect.bottom = rect.top + m_layout_data.height_s;
 		MoveWindow(rect);
-		CheckWindowPos();
 		theApp.m_cfg_data.m_show_more_info = false;
 	}
 	else
@@ -1706,7 +1526,6 @@ void CTrafficMonitorDlg::OnShowCpuMemory()
 		rect.right = rect.left + m_layout_data.width_l;
 		rect.bottom = rect.top + m_layout_data.height_l;
 		MoveWindow(rect);
-		CheckWindowPos();
 		theApp.m_cfg_data.m_show_more_info = true;
 	}
 	SetItemPosition();
@@ -1748,11 +1567,8 @@ void CTrafficMonitorDlg::OnUpdateShowCpuMemory(CCmdUI *pCmdUI)
 
 
 void CTrafficMonitorDlg::OnMousePenetrate()
-{
-	// TODO: 在此添加命令处理程序代码
-	theApp.m_cfg_data.m_mouse_penetrate = !theApp.m_cfg_data.m_mouse_penetrate;
-	SetMousePenetrate();
-	if (theApp.m_cfg_data.m_mouse_penetrate && !theApp.m_cfg_data.m_show_notify_icon)	//鼠标穿透时，如果通知图标没有显示，则将它显示出来，否则无法呼出右键菜单
+{	
+	if (!theApp.m_cfg_data.m_show_notify_icon)	//如果通知图标没有显示，则将它显示出来，否则无法呼出右键菜单
 	{
 		//添加通知栏图标
 		AddNotifyIcon();
@@ -1760,7 +1576,7 @@ void CTrafficMonitorDlg::OnMousePenetrate()
 	}
 
 	//设置鼠标穿透后，弹出消息提示用户如何关闭鼠标穿透
-	if (theApp.m_cfg_data.m_mouse_penetrate && theApp.m_show_mouse_panetrate_tip)
+	if (theApp.m_show_mouse_panetrate_tip)
 	{
 		if (MessageBox(CCommon::LoadText(IDS_MOUSE_PENETRATE_TIP_INFO), NULL, MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL)		//点击“取消”后不再提示
 		{
@@ -1770,14 +1586,6 @@ void CTrafficMonitorDlg::OnMousePenetrate()
 
 	theApp.SaveConfig();
 }
-
-
-void CTrafficMonitorDlg::OnUpdateMousePenetrate(CCmdUI *pCmdUI)
-{
-	// TODO: 在此添加命令更新用户界面处理程序代码
-	pCmdUI->SetCheck(theApp.m_cfg_data.m_mouse_penetrate);
-}
-
 
 void CTrafficMonitorDlg::OnShowTaskBarWnd()
 {
@@ -1795,7 +1603,7 @@ void CTrafficMonitorDlg::OnShowTaskBarWnd()
 	{
 		theApp.m_cfg_data.m_show_task_bar_wnd = false;
 		//关闭任务栏窗口后，如果没有显示通知区图标，且没有显示主窗口或设置了鼠标穿透，则将通知区图标显示出来
-		if (!theApp.m_cfg_data.m_show_notify_icon && (theApp.m_cfg_data.m_hide_main_window || theApp.m_cfg_data.m_mouse_penetrate))
+		if (!theApp.m_cfg_data.m_show_notify_icon)
 		{
 			AddNotifyIcon();
 			theApp.m_cfg_data.m_show_notify_icon = true;
@@ -1826,35 +1634,6 @@ LRESULT CTrafficMonitorDlg::OnTaskBarCreated(WPARAM wParam, LPARAM lParam)
 	return LRESULT();
 }
 
-
-void CTrafficMonitorDlg::OnShowMainWnd()
-{
-	// TODO: 在此添加命令处理程序代码
-	if (!theApp.m_cfg_data.m_hide_main_window)
-	{
-		ShowWindow(SW_HIDE);
-		theApp.m_cfg_data.m_hide_main_window = true;
-		//隐藏主窗口后，如果没有显示通知栏图标，则将其显示出来
-		if (!theApp.m_cfg_data.m_show_notify_icon && !theApp.m_cfg_data.m_show_task_bar_wnd)
-		{
-			AddNotifyIcon();
-			theApp.m_cfg_data.m_show_notify_icon = true;
-		}
-	}
-	else
-	{
-		ShowWindow(SW_RESTORE);
-		theApp.m_cfg_data.m_hide_main_window = false;
-	}
-	theApp.SaveConfig();
-}
-
-
-void CTrafficMonitorDlg::OnUpdateShowMainWnd(CCmdUI *pCmdUI)
-{
-	// TODO: 在此添加命令更新用户界面处理程序代码
-	pCmdUI->SetCheck(!theApp.m_cfg_data.m_hide_main_window);
-}
 
 void CTrafficMonitorDlg::OnMouseMove(UINT nFlags, CPoint point)
 {
@@ -1910,43 +1689,6 @@ afx_msg LRESULT CTrafficMonitorDlg::OnExitmenuloop(WPARAM wParam, LPARAM lParam)
 {
 	m_menu_popuped = false;
 	return 0;
-}
-
-
-void CTrafficMonitorDlg::OnChangeNotifyIcon()
-{
-	// TODO: 在此添加命令处理程序代码
-	CIconSelectDlg dlg(theApp.m_cfg_data.m_notify_icon_selected);
-    dlg.SetAutoAdaptNotifyIcon(theApp.m_cfg_data.m_notify_icon_auto_adapt);
-	if (dlg.DoModal() == IDOK)
-	{
-		theApp.m_cfg_data.m_notify_icon_selected = dlg.GetIconSelected();
-        theApp.m_cfg_data.m_notify_icon_auto_adapt = dlg.AutoAdaptNotifyIcon();
-		m_ntIcon.hIcon = theApp.m_notify_icons[theApp.m_cfg_data.m_notify_icon_selected];
-        if (theApp.m_cfg_data.m_notify_icon_auto_adapt)
-            theApp.AutoSelectNotifyIcon();
-		if (theApp.m_cfg_data.m_show_notify_icon)
-		{
-			DeleteNotifyIcon();
-			AddNotifyIcon();
-		}
-		theApp.SaveConfig();
-	}
-}
-
-
-void CTrafficMonitorDlg::OnAlowOutOfBorder()
-{
-	// TODO: 在此添加命令处理程序代码
-	theApp.m_cfg_data.m_alow_out_of_border = !theApp.m_cfg_data.m_alow_out_of_border;
-	CheckWindowPos();
-}
-
-
-void CTrafficMonitorDlg::OnUpdateAlowOutOfBorder(CCmdUI *pCmdUI)
-{
-	// TODO: 在此添加命令更新用户界面处理程序代码
-	pCmdUI->SetCheck(theApp.m_cfg_data.m_alow_out_of_border);
 }
 
 

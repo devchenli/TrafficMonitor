@@ -57,7 +57,6 @@ void CTrafficMonitorApp::LoadConfig()
 	m_cfg_data.m_lock_window_pos = ini.GetBool(_T("config"), _T("lock_window_pos"), false);
 	m_cfg_data.m_show_notify_icon = ini.GetBool(_T("config"), _T("show_notify_icon"), true);
 	m_cfg_data.m_show_more_info = ini.GetBool(_T("config"), _T("show_cpu_memory"), false);
-	m_cfg_data.m_mouse_penetrate = ini.GetBool(_T("config"), _T("mouse_penetrate"), false);
 	m_cfg_data.m_show_task_bar_wnd = ini.GetBool(_T("config"), _T("show_task_bar_wnd"), false);
 	m_cfg_data.m_position_x = ini.GetInt(_T("config"), _T("position_x"), -1);
 	m_cfg_data.m_position_y = ini.GetInt(_T("config"), _T("position_y"), -1);
@@ -66,7 +65,6 @@ void CTrafficMonitorApp::LoadConfig()
 	//m_main_wnd_data.text_color = ini.GetInt(_T("config"), _T("text_color"), 16384);
 	ini.GetIntArray(_T("config"), _T("text_color"), (int*)m_main_wnd_data.text_colors, MAIN_WND_COLOR_NUM, 16384);
 	m_main_wnd_data.specify_each_item_color = ini.GetBool(_T("config"), _T("specify_each_item_color"), false);
-	m_cfg_data.m_hide_main_window = ini.GetBool(_T("config"), _T("hide_main_window"), false);
 	m_cfg_data.m_connection_name = CCommon::UnicodeToStr(ini.GetString(L"connection", L"connection_name", L"").c_str());
 	m_cfg_data.m_skin_name = ini.GetString(_T("config"), _T("skin_selected"), _T(""));
 	if (m_cfg_data.m_skin_name.substr(0, 8) == L".\\skins\\")		//如果读取到的皮肤名称前面有".\\skins\\"，则把它删除。（用于和前一个版本保持兼容性）
@@ -201,7 +199,6 @@ void CTrafficMonitorApp::SaveConfig()
 	ini.WriteBool(L"config", L"lock_window_pos", m_cfg_data.m_lock_window_pos);
 	ini.WriteBool(L"config", L"show_notify_icon", m_cfg_data.m_show_notify_icon);
 	ini.WriteBool(L"config", L"show_cpu_memory", m_cfg_data.m_show_more_info);
-	ini.WriteBool(L"config", L"mouse_penetrate", m_cfg_data.m_mouse_penetrate);
 	ini.WriteBool(L"config", L"show_task_bar_wnd", m_cfg_data.m_show_task_bar_wnd);
 	ini.WriteInt(L"config", L"position_x", m_cfg_data.m_position_x);
 	ini.WriteInt(L"config", L"position_y", m_cfg_data.m_position_y);
@@ -209,7 +206,6 @@ void CTrafficMonitorApp::SaveConfig()
 	ini.WriteBool(L"connection", L"select_all", m_cfg_data.m_select_all);
 	ini.WriteIntArray(L"config", L"text_color", (int*)m_main_wnd_data.text_colors, MAIN_WND_COLOR_NUM);
 	ini.WriteBool(_T("config"), _T("specify_each_item_color"), m_main_wnd_data.specify_each_item_color);
-	ini.WriteInt(L"config", L"hide_main_window", m_cfg_data.m_hide_main_window);
 	ini.WriteString(L"connection", L"connection_name", CCommon::StrToUnicode(m_cfg_data.m_connection_name.c_str()).c_str());
 	ini.WriteString(_T("config"), _T("skin_selected"), m_cfg_data.m_skin_name.c_str());
 	ini.WriteInt(L"config", L"notify_icon_selected", m_cfg_data.m_notify_icon_selected);
@@ -464,7 +460,6 @@ void CTrafficMonitorApp::InitMenuResourse()
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_SHOW_TASK_BAR_WND, FALSE, GetMenuIcon(IDI_TASKBAR_WINDOW));
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_SHOW_MAIN_WND, FALSE, GetMenuIcon(IDI_MAIN_WINDOW));
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_CHANGE_SKIN, FALSE, GetMenuIcon(IDI_SKIN));
-    CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_CHANGE_NOTIFY_ICON, FALSE, GetMenuIcon(IDI_NOTIFY));
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_OPTIONS, FALSE, GetMenuIcon(IDI_SETTINGS));
     CMenuIcon::AddIconToMenuItem(m_main_menu.GetSafeHmenu(), ID_APP_EXIT, FALSE, GetMenuIcon(IDI_EXIT));
 

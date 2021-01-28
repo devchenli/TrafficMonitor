@@ -46,9 +46,6 @@
     <Filter Include="源文件和头文件\公共的类">
       <UniqueIdentifier>{5db79e4d-ccae-4347-8e35-bea54fc5a0a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件和头文件\对话框类\IconSelectDlg">
-      <UniqueIdentifier>{eedf8a29-f4cb-4c66-a019-593c9dfd81ae}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件和头文件\派生的控件类\PictureStatic">
       <UniqueIdentifier>{adb67f17-86da-401c-981c-c6f49a1f52ac}</UniqueIdentifier>
     </Filter>
@@ -167,9 +164,6 @@
     <ClInclude Include="NetworkInfoDlg.h">
       <Filter>源文件和头文件\对话框类\NetworkInfoDlg</Filter>
     </ClInclude>
-    <ClInclude Include="IconSelectDlg.h">
-      <Filter>源文件和头文件\对话框类\IconSelectDlg</Filter>
-    </ClInclude>
     <ClInclude Include="PictureStatic.h">
       <Filter>源文件和头文件\派生的控件类\PictureStatic</Filter>
     </ClInclude>
@@ -285,9 +279,6 @@
     </ClCompile>
     <ClCompile Include="NetworkInfoDlg.cpp">
       <Filter>源文件和头文件\对话框类\NetworkInfoDlg</Filter>
-    </ClCompile>
-    <ClCompile Include="IconSelectDlg.cpp">
-      <Filter>源文件和头文件\对话框类\IconSelectDlg</Filter>
     </ClCompile>
     <ClCompile Include="PictureStatic.cpp">
       <Filter>源文件和头文件\派生的控件类\PictureStatic</Filter>

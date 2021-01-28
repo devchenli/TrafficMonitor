@@ -64,10 +64,6 @@ using std::ofstream;
 
 #define MY_WM_NOTIFYICON (WM_USER+1001)
 
-//#define CONFIG_PATH _T(".\\config.ini")
-//#define CONFIG_PATHA ".\\config.ini"
-//#define LOG_PATH _T(".\\error.log")
-//#define HISTORY_TRAFFIC_PATH _T(".\\history_traffic.dat")
 #define MAX_RESTART_CNT 10		//最大重新初始化次数
 
 #define MAIN_TIMER 1234			//主定时器的ID
@@ -82,12 +78,6 @@ using std::ofstream;
 #define COMPILE_DATE L"2020/08/05"
 
 #define MAX_NOTIFY_ICON 6		//可选的通知区图标数量
-
-//背景图片的文件名
-#define BACKGROUND_IMAGE_S L"\\background.bmp"
-#define BACKGROUND_IMAGE_L L"\\background_l.bmp"
-#define BACKGROUND_MASK_S L"\\background_mask.bmp"
-#define BACKGROUND_MASK_L L"\\background_mask_l.bmp"
 
 #define MIN_FONT_SIZE 5
 #define MAX_FONT_SIZE 72
@@ -104,6 +94,3 @@ using std::ofstream;
 //定义两个用于作为任务栏透明色的颜色（当需要设置任务栏窗口不透明时使用）
 #define TASKBAR_TRANSPARENT_COLOR1 RGB(52, 28, 41)
 #define TASKBAR_TRANSPARENT_COLOR2 RGB(38, 67, 55)
-
-//如果需要为Windows XP系统编译，请去掉下面一行代码的注释
-//#define COMPILE_FOR_WINXP

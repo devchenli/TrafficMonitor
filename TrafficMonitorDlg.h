@@ -10,10 +10,8 @@
 #include "StaticEx.h"
 #include "Common.h"
 #include "TaskBarDlg.h"
-#include "SkinDlg.h"
 #include "OptionsDlg.h"
 #include "PictureStatic.h"
-#include "IconSelectDlg.h"
 #include "DrawCommon.h"
 #include "IniHelper.h"
 #include "LinkStatic.h"
@@ -93,9 +91,6 @@ protected:
 	CString GetMouseTipsInfo();		//获取鼠标提示信息
 	void SetTransparency();			//根据m_transparency的值设置窗口透明度
 	void SetTransparency(int transparency);
-	void SetAlwaysOnTop();			//根据m_always_on_top的值设置窗口置顶
-	void SetMousePenetrate();		//根据m_mouse_penetrate的值设置是否鼠标穿透
-	void CheckWindowPos();			//测试窗口的位置，如窗口的位置在屏幕外，则移动窗口使其全部都在屏幕内，并返回新位置
 	void GetScreenSize();			//获取屏幕的大小
 
 	void AutoSelect();		//自动选择连接
@@ -128,18 +123,13 @@ public:
 protected:
 	// 生成的消息映射函数
 	virtual BOOL OnInitDialog();
-//	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-//	afx_msg LRESULT OnNcHitTest(CPoint point);
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
-//	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnNetworkInfo();
-	afx_msg void OnAlwaysOnTop();
-	afx_msg void OnUpdateAlwaysOnTop(CCmdUI *pCmdUI);
 	afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
 	afx_msg void OnTransparency100();
 	afx_msg void OnTransparency80();
@@ -161,11 +151,8 @@ public:
 	afx_msg void OnShowCpuMemory();
 	afx_msg void OnUpdateShowCpuMemory(CCmdUI *pCmdUI);
 	afx_msg void OnMousePenetrate();
-	afx_msg void OnUpdateMousePenetrate(CCmdUI *pCmdUI);
 	afx_msg void OnShowTaskBarWnd();
 	afx_msg void OnShowCpuMemory2();
-	afx_msg void OnShowMainWnd();
-	afx_msg void OnUpdateShowMainWnd(CCmdUI *pCmdUI);
 	afx_msg LRESULT OnTaskBarCreated(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
@@ -173,10 +160,6 @@ public:
 	afx_msg void OnOptions2();
 protected:
 	afx_msg LRESULT OnExitmenuloop(WPARAM wParam, LPARAM lParam);
-public:
-	afx_msg void OnChangeNotifyIcon();
-	afx_msg void OnAlowOutOfBorder();
-	afx_msg void OnUpdateAlowOutOfBorder(CCmdUI *pCmdUI);
 protected:
 	afx_msg LRESULT OnTaskbarMenuPopedUp(WPARAM wParam, LPARAM lParam);
 public:
