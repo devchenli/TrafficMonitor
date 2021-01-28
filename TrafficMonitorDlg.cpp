@@ -652,11 +652,6 @@ BOOL CTrafficMonitorDlg::OnInitDialog()
 	if (m_skins.empty())
 		m_skins.push_back(L"");
 	m_skin_selected = 0;
-	for (unsigned int i{}; i<m_skins.size(); i++)
-	{
-		if (m_skins[i] == theApp.m_cfg_data.m_skin_name)
-			m_skin_selected = i;
-	}
 
 
 	//初始化窗口位置

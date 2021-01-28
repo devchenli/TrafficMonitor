@@ -105,7 +105,6 @@ struct MainConfigData
 	bool m_select_all{ false };		//统计所有连接的网速
 	string m_connection_name;		//当前选择网络的名称
 
-	wstring m_skin_name;			//选择的皮肤的名称
 	int m_dft_notify_icon = 0;		//默认的通知图标(用于区分win10的深色和浅色模式)
 	int m_notify_icon_selected{};	//要显示的通知区图标
     bool m_notify_icon_auto_adapt{ false }; //通知区图标是否自动适应Win10深浅色模式
@@ -229,8 +228,6 @@ struct LayoutData
 	int memory_width_l;		//“内存”的宽度
 	Alignment memory_align_l;	//“内存”的对齐方式
 	bool show_memory_l;		//是否显示“内存”
-	int preview_x_l;		//在“选择皮肤”界面中预览图的x坐标
-	int preview_y_l;		//在“选择皮肤”界面中预览图的y坐标
 
 	//小窗口模式（不勾选“显示更多信息”时的布局）
 	int width_s;	//窗口的宽度
@@ -255,8 +252,6 @@ struct LayoutData
 	int memory_width_s;		//“内存”的宽度
 	Alignment memory_align_s;	//“内存”的对齐方式
 	bool show_memory_s;		//是否显示“内存”
-	int preview_x_s;	//在“选择皮肤”界面中预览图的x坐标
-	int preview_y_s;	//在“选择皮肤”界面中预览图的y坐标
 };
 
 
