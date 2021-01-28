@@ -185,9 +185,6 @@
     <ClInclude Include="IniHelper.h">
       <Filter>源文件和头文件\公共的类\IniHelper</Filter>
     </ClInclude>
-    <ClInclude Include="MainWndColorDlg.h">
-      <Filter>源文件和头文件\对话框类\颜色设置对话框</Filter>
-    </ClInclude>
     <ClInclude Include="LinkStatic.h">
       <Filter>源文件和头文件\派生的控件类\LinkStatic</Filter>
     </ClInclude>
@@ -294,9 +291,6 @@
     </ClCompile>
     <ClCompile Include="IniHelper.cpp">
       <Filter>源文件和头文件\公共的类\IniHelper</Filter>
-    </ClCompile>
-    <ClCompile Include="MainWndColorDlg.cpp">
-      <Filter>源文件和头文件\对话框类\颜色设置对话框</Filter>
     </ClCompile>
     <ClCompile Include="LinkStatic.cpp">
       <Filter>源文件和头文件\派生的控件类\LinkStatic</Filter>
