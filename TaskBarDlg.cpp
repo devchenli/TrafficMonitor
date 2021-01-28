@@ -414,43 +414,10 @@ CString CTaskBarDlg::GetMouseTipsInfo()
 		CCommon::LoadText(IDS_DOWNLOAD), CCommon::KBytesToString(static_cast<unsigned int>(theApp.m_today_down_traffic / 1024))
 	);
 	tip_info += temp;
-	if (!IsShowUp())
-	{
-		temp.Format(_T("\r\n%s: %s/s"), CCommon::LoadText(IDS_UPLOAD),
-			CCommon::DataSizeToString(theApp.m_out_speed, theApp.m_main_wnd_data));
-		tip_info += temp;
-	}
-	if (!IsShowDown())
-	{
-		temp.Format(_T("\r\n%s: %s/s"), CCommon::LoadText(IDS_DOWNLOAD),
-			CCommon::DataSizeToString(theApp.m_in_speed, theApp.m_main_wnd_data));
-		tip_info += temp;
-	}
-	if (!IsShowCpu())
-	{
-		temp.Format(_T("\r\n%s: %d%%"), CCommon::LoadText(IDS_CPU_USAGE), theApp.m_cpu_usage);
-		tip_info += temp;
-	}
-	if (!IsShowCpuMemory())
-	{
-		temp.Format(_T("\r\n%s: %s/%s"),
-			CCommon::LoadText(IDS_MEMORY_USAGE),
-			CCommon::KBytesToString(theApp.m_used_memory), CCommon::KBytesToString(theApp.m_total_memory));
-	}
-	if (!IsShowMemory())
-	{
-		temp.Format(_T("\r\n%s: %s/%s (%d%%)"), CCommon::LoadText(IDS_MEMORY_USAGE),
-			CCommon::KBytesToString(theApp.m_used_memory),
-			CCommon::KBytesToString(theApp.m_total_memory), theApp.m_memory_usage);
-		tip_info += temp;
-	}
-	else
-	{
-		temp.Format(_T("\r\n%s: %s/%s"), CCommon::LoadText(IDS_MEMORY_USAGE),
-			CCommon::KBytesToString(theApp.m_used_memory),
-			CCommon::KBytesToString(theApp.m_total_memory));
-		tip_info += temp;
-	}
+	temp.Format(_T("\r\n%s: %s/%s"), CCommon::LoadText(IDS_MEMORY_USAGE),
+		CCommon::KBytesToString(theApp.m_used_memory),
+		CCommon::KBytesToString(theApp.m_total_memory));
+	tip_info += temp;
 	return tip_info;
 }
 

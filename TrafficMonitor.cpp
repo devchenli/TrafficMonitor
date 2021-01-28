@@ -49,44 +49,21 @@ void CTrafficMonitorApp::LoadConfig()
 
 	//主窗口设置
 	m_cfg_data.m_show_notify_icon = ini.GetBool(_T("config"), _T("show_notify_icon"), true);
-	m_cfg_data.m_show_more_info = ini.GetBool(_T("config"), _T("show_cpu_memory"), false);
 	m_cfg_data.m_show_task_bar_wnd = ini.GetBool(_T("config"), _T("show_task_bar_wnd"), false);
 	m_cfg_data.m_position_x = ini.GetInt(_T("config"), _T("position_x"), -1);
 	m_cfg_data.m_position_y = ini.GetInt(_T("config"), _T("position_y"), -1);
 	m_cfg_data.m_auto_select = ini.GetBool(_T("connection"), _T("auto_select"), true);
 	m_cfg_data.m_select_all = ini.GetBool(_T("connection"), _T("select_all"), false);
-	ini.GetIntArray(_T("config"), _T("text_color"), (int*)m_main_wnd_data.text_colors, MAIN_WND_COLOR_NUM, 16384);
-	m_main_wnd_data.specify_each_item_color = ini.GetBool(_T("config"), _T("specify_each_item_color"), false);
 	m_cfg_data.m_connection_name = CCommon::UnicodeToStr(ini.GetString(L"connection", L"connection_name", L"").c_str());
 	
 	m_cfg_data.m_notify_icon_selected = ini.GetInt(_T("config"), _T("notify_icon_selected"), (m_win_version.IsWindows7() || m_win_version.IsWindows8Or8point1() ? 2 : m_cfg_data.m_dft_notify_icon));		//Win7/8/8.1默认使用蓝色通知区图标，因为隐藏通知区图标后白色图标会看不清，其他系统默认使用白色图标
     m_cfg_data.m_notify_icon_auto_adapt = ini.GetBool(_T("config"), _T("notify_icon_auto_adapt"), true);
     if(m_cfg_data.m_notify_icon_auto_adapt)
         AutoSelectNotifyIcon();
-    m_main_wnd_data.swap_up_down = ini.GetBool(_T("config"), _T("swap_up_down"), false);
-	m_main_wnd_data.hide_main_wnd_when_fullscreen = ini.GetBool(_T("config"), _T("hide_main_wnd_when_fullscreen"), true);
-
 	FontInfo default_font{};
 	default_font.name = CCommon::LoadText(IDS_DEFAULT_FONT);
 	default_font.size = 10;
-	ini.LoadFontData(_T("config"), m_main_wnd_data.font, default_font);
 
-	m_main_wnd_data.disp_str.up = ini.GetString(_T("config"), L"up_string", CCommon::LoadText(IDS_UPLOAD_DISP, _T(": $")));
-	m_main_wnd_data.disp_str.down = ini.GetString(L"config", L"down_string", CCommon::LoadText(IDS_DOWNLOAD_DISP, _T(": $")));
-	m_main_wnd_data.disp_str.cpu = ini.GetString(L"config", L"cpu_string", L"CPU: $");
-	m_main_wnd_data.disp_str.memory = ini.GetString(L"config", L"memory_string", CCommon::LoadText(IDS_MEMORY_DISP, _T(": $")));
-
-	m_main_wnd_data.speed_short_mode = ini.GetBool(_T("config"), _T("speed_short_mode"), false);
-	m_main_wnd_data.separate_value_unit_with_space = ini.GetBool(_T("config"), _T("separate_value_unit_with_space"), true);
-	m_main_wnd_data.show_tool_tip = ini.GetBool(_T("config"), _T("show_tool_tip"), true);
-	m_main_wnd_data.unit_byte = ini.GetBool(_T("config"), _T("unit_byte"), true);
-	m_main_wnd_data.speed_unit = static_cast<SpeedUnit>(ini.GetInt(_T("config"), _T("speed_unit"), 0));
-	m_main_wnd_data.hide_unit = ini.GetBool(_T("config"), _T("hide_unit"), false);
-	m_main_wnd_data.hide_percent = ini.GetBool(_T("config"), _T("hide_percent"), false);
-	m_main_wnd_data.double_click_action = static_cast<DoubleClickAction>(ini.GetInt(_T("config"), _T("double_click_action"), 0));
-    m_main_wnd_data.double_click_exe = ini.GetString(L"config", L"double_click_exe", (theApp.m_system_dir + L"\\Taskmgr.exe").c_str());
-
-	m_cfg_data.m_alow_out_of_border = ini.GetBool(_T("config"), _T("alow_out_of_border"), false);
 
 	m_general_data.traffic_tip_enable = ini.GetBool(L"notify_tip", L"traffic_tip_enable", false);
 	m_general_data.traffic_tip_value = ini.GetInt(L"notify_tip", L"traffic_tip_value", 200);
@@ -176,40 +153,15 @@ void CTrafficMonitorApp::SaveConfig()
 
 	//主窗口设置
 	ini.WriteBool(L"config", L"show_notify_icon", m_cfg_data.m_show_notify_icon);
-	ini.WriteBool(L"config", L"show_cpu_memory", m_cfg_data.m_show_more_info);
 	ini.WriteBool(L"config", L"show_task_bar_wnd", m_cfg_data.m_show_task_bar_wnd);
 	ini.WriteInt(L"config", L"position_x", m_cfg_data.m_position_x);
 	ini.WriteInt(L"config", L"position_y", m_cfg_data.m_position_y);
 	ini.WriteBool(L"connection", L"auto_select", m_cfg_data.m_auto_select);
 	ini.WriteBool(L"connection", L"select_all", m_cfg_data.m_select_all);
-	ini.WriteIntArray(L"config", L"text_color", (int*)m_main_wnd_data.text_colors, MAIN_WND_COLOR_NUM);
-	ini.WriteBool(_T("config"), _T("specify_each_item_color"), m_main_wnd_data.specify_each_item_color);
 	ini.WriteString(L"connection", L"connection_name", CCommon::StrToUnicode(m_cfg_data.m_connection_name.c_str()).c_str());
 	
 	ini.WriteInt(L"config", L"notify_icon_selected", m_cfg_data.m_notify_icon_selected);
     ini.WriteBool(L"config", L"notify_icon_auto_adapt", m_cfg_data.m_notify_icon_auto_adapt);
-
-	ini.SaveFontData(L"config", m_main_wnd_data.font);
-
-	ini.WriteBool(L"config", L"swap_up_down", m_main_wnd_data.swap_up_down);
-	ini.WriteBool(L"config", L"hide_main_wnd_when_fullscreen", m_main_wnd_data.hide_main_wnd_when_fullscreen);
-
-	ini.WriteString(_T("config"), _T("up_string"), m_main_wnd_data.disp_str.up);
-	ini.WriteString(_T("config"), _T("down_string"), m_main_wnd_data.disp_str.down);
-	ini.WriteString(_T("config"), _T("cpu_string"), m_main_wnd_data.disp_str.cpu);
-	ini.WriteString(_T("config"), _T("memory_string"), m_main_wnd_data.disp_str.memory);
-
-	ini.WriteBool(L"config", L"speed_short_mode", m_main_wnd_data.speed_short_mode);
-	ini.WriteBool(L"config", L"separate_value_unit_with_space", m_main_wnd_data.separate_value_unit_with_space);
-	ini.WriteBool(L"config", L"show_tool_tip", m_main_wnd_data.show_tool_tip);
-	ini.WriteBool(L"config", L"unit_byte", m_main_wnd_data.unit_byte);
-	ini.WriteInt(L"config", L"speed_unit", static_cast<int>(m_main_wnd_data.speed_unit));
-	ini.WriteBool(L"config", L"hide_unit", m_main_wnd_data.hide_unit);
-	ini.WriteBool(L"config", L"hide_percent", m_main_wnd_data.hide_percent);
-	ini.WriteInt(L"config", L"double_click_action", static_cast<int>(m_main_wnd_data.double_click_action));
-    ini.WriteString(L"config", L"double_click_exe", m_main_wnd_data.double_click_exe);
-
-	ini.WriteInt(L"config", L"alow_out_of_border", m_cfg_data.m_alow_out_of_border);
 
 	ini.WriteBool(L"notify_tip", L"traffic_tip_enable", m_general_data.traffic_tip_enable);
 	ini.WriteInt(L"notify_tip", L"traffic_tip_value", m_general_data.traffic_tip_value);

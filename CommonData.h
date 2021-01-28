@@ -91,7 +91,6 @@ enum TaskbarDisplayItem
 //选项设置数据
 struct MainConfigData
 {
-	bool m_show_more_info{ false };		//显示更多信息
 	bool m_show_task_bar_wnd{ false };	//显示任务栏窗口
 
 	bool m_show_notify_icon{ true };	//显示通知区域图标
@@ -108,7 +107,6 @@ struct MainConfigData
 	int m_dft_notify_icon = 0;		//默认的通知图标(用于区分win10的深色和浅色模式)
 	int m_notify_icon_selected{};	//要显示的通知区图标
     bool m_notify_icon_auto_adapt{ false }; //通知区图标是否自动适应Win10深浅色模式
-	bool m_alow_out_of_border{ false };		//是否允许悬浮窗超出屏幕边界
 
 	//bool m_show_internet_ip{ false };		//是否在“连接详情”对话框中显示外网IP地址
 	bool m_sunday_first{ true };			//是否将周日作为一周的第一天
@@ -130,14 +128,6 @@ struct PublicSettingData
 	bool hide_percent;		//隐藏百分号
 	DoubleClickAction double_click_action;		//鼠标双击动作
 	wstring double_click_exe;	//鼠标双击动作为打开指定应用程序时，打开的程序路径
-};
-
-#define MAIN_WND_COLOR_NUM 4		//主窗口颜色数量
-//选项设置中“主窗口设置”的数据
-struct MainWndSettingData : public PublicSettingData
-{
-	COLORREF text_colors[MAIN_WND_COLOR_NUM]{};		//文字颜色（分别为“上传”、“下载”、“CPU”、“内存”的颜色）
-	bool hide_main_wnd_when_fullscreen;		//有程序全屏运行时隐藏悬浮窗
 };
 
 #define TASKBAR_COLOR_NUM 8		//任务栏窗口颜色数量
@@ -254,12 +244,3 @@ struct LayoutData
 	bool show_memory_s;		//是否显示“内存”
 };
 
-
-struct SkinData
-{
-	LayoutData layout;
-	COLORREF text_colors[MAIN_WND_COLOR_NUM]{};		//文字颜色（分别为“上传”、“下载”、“CPU”、“内存”的颜色）
-	bool specify_each_item_color;		//是否指定每个项目的颜色
-	DispStrings disp_str;
-	FontInfo font;			//字体
-};

@@ -75,58 +75,6 @@ BEGIN_MESSAGE_MAP(CTrafficMonitorDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-void CTrafficMonitorDlg::ShowInfo()
-{
-	CString str;
-	CString in_speed = CCommon::DataSizeToString(theApp.m_in_speed, theApp.m_main_wnd_data);
-	CString out_speed = CCommon::DataSizeToString(theApp.m_out_speed, theApp.m_main_wnd_data);
-
-	CString format_str;
-	if (theApp.m_main_wnd_data.hide_unit && theApp.m_main_wnd_data.speed_unit != SpeedUnit::AUTO)
-		format_str = _T("%s%s");
-	else
-		format_str = _T("%s%s/s");
-	if (!theApp.m_main_wnd_data.swap_up_down)
-	{
-		str.Format(format_str, (m_layout_data.no_text ? _T("") : theApp.m_main_wnd_data.disp_str.up.c_str()), out_speed.GetString());
-		m_disp_up.SetWindowTextEx(str, (theApp.m_cfg_data.m_show_more_info ? m_layout_data.up_align_l : m_layout_data.up_align_s));
-		str.Format(format_str, (m_layout_data.no_text ? _T("") : theApp.m_main_wnd_data.disp_str.down.c_str()), in_speed.GetString());
-		m_disp_down.SetWindowTextEx(str, (theApp.m_cfg_data.m_show_more_info ? m_layout_data.down_align_l : m_layout_data.down_align_s));
-	}
-	else		//交换上传和下载位置
-	{
-		str.Format(format_str, (m_layout_data.no_text ? _T("") : theApp.m_main_wnd_data.disp_str.down.c_str()), in_speed.GetString());
-		m_disp_up.SetWindowTextEx(str, (theApp.m_cfg_data.m_show_more_info ? m_layout_data.up_align_l : m_layout_data.up_align_s));
-		str.Format(format_str, (m_layout_data.no_text ? _T("") : theApp.m_main_wnd_data.disp_str.up.c_str()), out_speed.GetString());
-		m_disp_down.SetWindowTextEx(str, (theApp.m_cfg_data.m_show_more_info ? m_layout_data.down_align_l : m_layout_data.down_align_s));
-	}
-	if (theApp.m_main_wnd_data.hide_percent)
-		format_str = _T("%s%d");
-    else if(theApp.m_main_wnd_data.separate_value_unit_with_space)
-        format_str = _T("%s%d %%");
-	else
-		format_str = _T("%s%d%%");
-	str.Format(format_str, (m_layout_data.no_text ? _T("") : theApp.m_main_wnd_data.disp_str.cpu.c_str()), theApp.m_cpu_usage);
-	m_disp_cpu.SetWindowTextEx(str, (theApp.m_cfg_data.m_show_more_info ? m_layout_data.cpu_align_l : m_layout_data.cpu_align_s));
-	str.Format(format_str, (m_layout_data.no_text ? _T("") : theApp.m_main_wnd_data.disp_str.memory.c_str()), theApp.m_memory_usage);
-	m_disp_memory.SetWindowTextEx(str, (theApp.m_cfg_data.m_show_more_info ? m_layout_data.memory_align_l : m_layout_data.memory_align_s));
-	//设置要显示的项目
-	if (theApp.m_cfg_data.m_show_more_info)
-	{
-		m_disp_up.ShowWindow(m_layout_data.show_up_l ? SW_SHOW : SW_HIDE);
-		m_disp_down.ShowWindow(m_layout_data.show_down_l ? SW_SHOW : SW_HIDE);
-		m_disp_cpu.ShowWindow(m_layout_data.show_cpu_l ? SW_SHOW : SW_HIDE);
-		m_disp_memory.ShowWindow(m_layout_data.show_memory_l ? SW_SHOW : SW_HIDE);
-	}
-	else
-	{
-		m_disp_up.ShowWindow(m_layout_data.show_up_s ? SW_SHOW : SW_HIDE);
-		m_disp_down.ShowWindow(m_layout_data.show_down_s ? SW_SHOW : SW_HIDE);
-		m_disp_cpu.ShowWindow(m_layout_data.show_cpu_s ? SW_SHOW : SW_HIDE);
-		m_disp_memory.ShowWindow(m_layout_data.show_memory_s ? SW_SHOW : SW_HIDE);
-	}
-}
-
 CString CTrafficMonitorDlg::GetMouseTipsInfo()
 {
 	CString tip_info;
@@ -137,74 +85,10 @@ CString CTrafficMonitorDlg::GetMouseTipsInfo()
 		CCommon::LoadText(IDS_DOWNLOAD), CCommon::KBytesToString(static_cast<unsigned int>(theApp.m_today_down_traffic / 1024))
 		);
 	tip_info += temp;
-	if (theApp.m_cfg_data.m_show_more_info)
-	{
-		if (!m_layout_data.show_up_l)		//如果主窗口中没有显示上传速度，则在提示信息中显示上传速度
-		{
-			temp.Format(_T("\r\n%s: %s/s"), CCommon::LoadText(IDS_UPLOAD),
-				CCommon::DataSizeToString(theApp.m_out_speed, theApp.m_main_wnd_data));
-			tip_info += temp;
-		}
-		if (!m_layout_data.show_down_l)
-		{
-			temp.Format(_T("\r\n%s: %s/s"), CCommon::LoadText(IDS_DOWNLOAD),
-				CCommon::DataSizeToString(theApp.m_in_speed, theApp.m_main_wnd_data));
-			tip_info += temp;
-		}
-		if (!m_layout_data.show_cpu_l)
-		{
-			temp.Format(_T("\r\n%s: %d%%"), CCommon::LoadText(IDS_CPU_USAGE), theApp.m_cpu_usage);
-			tip_info += temp;
-		}
-		if (!m_layout_data.show_memory_l)
-		{
-			temp.Format(_T("\r\n%s: %s/%s (%d%%)"), CCommon::LoadText(IDS_MEMORY_USAGE),
-				CCommon::KBytesToString(theApp.m_used_memory),
-				CCommon::KBytesToString(theApp.m_total_memory), theApp.m_memory_usage);
-			tip_info += temp;
-		}
-		else
-		{
-			temp.Format(_T("\r\n%s: %s/%s"), CCommon::LoadText(IDS_MEMORY_USAGE),
-				CCommon::KBytesToString(theApp.m_used_memory),
-				CCommon::KBytesToString(theApp.m_total_memory));
-			tip_info += temp;
-		}
-	}
-	else
-	{
-		if (!m_layout_data.show_up_s)		//如果主窗口中没有显示上传速度，则在提示信息中显示上传速度
-		{
-			temp.Format(_T("\r\n%s: %s/s"), CCommon::LoadText(IDS_UPLOAD),
-				CCommon::DataSizeToString(theApp.m_out_speed, theApp.m_main_wnd_data));
-			tip_info += temp;
-		}
-		if (!m_layout_data.show_down_s)
-		{
-			temp.Format(_T("\r\n%s: %s/s"), CCommon::LoadText(IDS_DOWNLOAD),
-				CCommon::DataSizeToString(theApp.m_in_speed, theApp.m_main_wnd_data));
-			tip_info += temp;
-		}
-		if (!m_layout_data.show_cpu_s)
-		{
-			temp.Format(_T("\r\n%s: %d%%"), CCommon::LoadText(IDS_CPU_USAGE), theApp.m_cpu_usage);
-			tip_info += temp;
-		}
-		if (!m_layout_data.show_memory_s)
-		{
-			temp.Format(_T("\r\n%s: %s/%s (%d%%)"), CCommon::LoadText(IDS_MEMORY_USAGE),
-				CCommon::KBytesToString(theApp.m_used_memory),
-				CCommon::KBytesToString(theApp.m_total_memory), theApp.m_memory_usage);
-			tip_info += temp;
-		}
-		else
-		{
-			temp.Format(_T("\r\n%s: %s/%s"), CCommon::LoadText(IDS_MEMORY_USAGE),
-				CCommon::KBytesToString(theApp.m_used_memory),
-				CCommon::KBytesToString(theApp.m_total_memory));
-			tip_info += temp;
-		}
-	}
+	temp.Format(_T("\r\n%s: %s/%s"), CCommon::LoadText(IDS_MEMORY_USAGE),
+		CCommon::KBytesToString(theApp.m_used_memory),
+		CCommon::KBytesToString(theApp.m_total_memory));
+	tip_info += temp;
 	return tip_info;
 }
 
@@ -509,68 +393,14 @@ void CTrafficMonitorDlg::_OnOptions(int tab)
 
 void CTrafficMonitorDlg::SetItemPosition()
 {
-	if (theApp.m_cfg_data.m_show_more_info)
-	{
-		SetWindowPos(nullptr, 0, 0, m_layout_data.width_l, m_layout_data.height_l, SWP_NOMOVE | SWP_NOZORDER);
-		m_disp_up.MoveWindow(m_layout_data.up_x_l, m_layout_data.up_y_l, m_layout_data.up_width_l, m_layout_data.text_height);
-		m_disp_down.MoveWindow(m_layout_data.down_x_l, m_layout_data.down_y_l, m_layout_data.down_width_l, m_layout_data.text_height);
-		m_disp_cpu.MoveWindow(m_layout_data.cpu_x_l, m_layout_data.cpu_y_l, m_layout_data.cpu_width_l, m_layout_data.text_height);
-		m_disp_memory.MoveWindow(m_layout_data.memory_x_l, m_layout_data.memory_y_l, m_layout_data.memory_width_l, m_layout_data.text_height);
-	}
-	else
-	{
-		SetWindowPos(nullptr, 0, 0, m_layout_data.width_s, m_layout_data.height_s, SWP_NOMOVE | SWP_NOZORDER);
-		m_disp_up.MoveWindow(m_layout_data.up_x_s, m_layout_data.up_y_s, m_layout_data.up_width_s, m_layout_data.text_height);
-		m_disp_down.MoveWindow(m_layout_data.down_x_s, m_layout_data.down_y_s, m_layout_data.down_width_s, m_layout_data.text_height);
-		m_disp_cpu.MoveWindow(m_layout_data.cpu_x_s, m_layout_data.cpu_y_s, m_layout_data.cpu_width_s, m_layout_data.text_height);
-		m_disp_memory.MoveWindow(m_layout_data.memory_x_s, m_layout_data.memory_y_s, m_layout_data.memory_width_s, m_layout_data.text_height);
-	}
+	SetWindowPos(nullptr, 0, 0, m_layout_data.width_s, m_layout_data.height_s, SWP_NOMOVE | SWP_NOZORDER);
+	m_disp_up.MoveWindow(m_layout_data.up_x_s, m_layout_data.up_y_s, m_layout_data.up_width_s, m_layout_data.text_height);
+	m_disp_down.MoveWindow(m_layout_data.down_x_s, m_layout_data.down_y_s, m_layout_data.down_width_s, m_layout_data.text_height);
+	m_disp_cpu.MoveWindow(m_layout_data.cpu_x_s, m_layout_data.cpu_y_s, m_layout_data.cpu_width_s, m_layout_data.text_height);
+	m_disp_memory.MoveWindow(m_layout_data.memory_x_s, m_layout_data.memory_y_s, m_layout_data.memory_width_s, m_layout_data.text_height);
+
 }
 
-void CTrafficMonitorDlg::SetTextColor()
-{
-	int text_colors[MAIN_WND_COLOR_NUM];
-	if (theApp.m_main_wnd_data.specify_each_item_color)
-	{
-		for (int i{}; i < MAIN_WND_COLOR_NUM; i++)
-			text_colors[i] = theApp.m_main_wnd_data.text_colors[i];
-	}
-	else
-	{
-		for (int i{}; i < MAIN_WND_COLOR_NUM; i++)
-			text_colors[i] = theApp.m_main_wnd_data.text_colors[0];
-	}
-
-	m_disp_up.SetTextColor(text_colors[0]);
-	m_disp_down.SetTextColor(text_colors[1]);
-	m_disp_cpu.SetTextColor(text_colors[2]);
-	m_disp_memory.SetTextColor(text_colors[3]);
-}
-
-void CTrafficMonitorDlg::SetTextFont()
-{
-	if (m_font.m_hObject)	//如果m_font已经关联了一个字体资源对象，则释放它
-		m_font.DeleteObject();
-	m_font.CreateFont(
-		FONTSIZE_TO_LFHEIGHT(theApp.m_main_wnd_data.font.size), // nHeight
-		0, // nWidth
-		0, // nEscapement
-		0, // nOrientation
-		(theApp.m_main_wnd_data.font.bold ? FW_BOLD : FW_NORMAL), // nWeight
-		theApp.m_main_wnd_data.font.italic, // bItalic
-		theApp.m_main_wnd_data.font.underline, // bUnderline
-		theApp.m_main_wnd_data.font.strike_out, // cStrikeOut
-		DEFAULT_CHARSET, // nCharSet
-		OUT_DEFAULT_PRECIS, // nOutPrecision
-		CLIP_DEFAULT_PRECIS, // nClipPrecision
-		DEFAULT_QUALITY, // nQuality
-		DEFAULT_PITCH | FF_SWISS, // nPitchAndFamily
-		theApp.m_main_wnd_data.font.name);
-	m_disp_cpu.SetFont(&m_font);
-	m_disp_memory.SetFont(&m_font);
-	m_disp_up.SetFont(&m_font);
-	m_disp_down.SetFont(&m_font);
-}
 
 bool CTrafficMonitorDlg::IsTaskbarWndValid() const
 {
@@ -579,10 +409,6 @@ bool CTrafficMonitorDlg::IsTaskbarWndValid() const
 
 void CTrafficMonitorDlg::ApplySettings()
 {
-	//应用文字颜色设置
-	SetTextColor();
-	//应用字体设置
-	SetTextFont();
 }
 
 // CTrafficMonitorDlg 消息处理程序
@@ -657,11 +483,6 @@ BOOL CTrafficMonitorDlg::OnInitDialog()
 	if (theApp.m_cfg_data.m_position_x != -1 && theApp.m_cfg_data.m_position_y != -1)
 		SetWindowPos(nullptr, theApp.m_cfg_data.m_position_x, theApp.m_cfg_data.m_position_y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
 
-	//设置字体
-	SetTextFont();
-
-	//设置文字颜色
-	SetTextColor();
 
 	//获取启动时的时间
 	GetLocalTime(&m_start_time);
@@ -827,16 +648,7 @@ void CTrafficMonitorDlg::OnTimer(UINT_PTR nIDEvent)
 		theApp.m_memory_usage = statex.dwMemoryLoad;
 		theApp.m_used_memory = static_cast<int>((statex.ullTotalPhys - statex.ullAvailPhys) / 1024);
 		theApp.m_total_memory  = static_cast<int>(statex.ullTotalPhys / 1024);
-
-		ShowInfo();		//刷新窗口信息
 	
-		//更新鼠标提示
-        if (theApp.m_main_wnd_data.show_tool_tip)
-        {
-            CString tip_info;
-            tip_info = GetMouseTipsInfo();
-            m_tool_tips.UpdateTipText(tip_info, this);
-        }
 		//更新任务栏窗口鼠标提示
 		if (IsTaskbarWndValid())
 			m_tBarDlg->UpdateToolTips();
@@ -1087,18 +899,7 @@ void CTrafficMonitorDlg::OnRButtonUp(UINT nFlags, CPoint point)
 	CPoint point1;	//定义一个用于确定光标位置的位置  
 	GetCursorPos(&point1);	//获取当前光标的位置，以便使得菜单可以跟随光标
 	//设置默认菜单项
-	switch (theApp.m_main_wnd_data.double_click_action)
-	{
-	case DoubleClickAction::CONNECTION_INFO:
-		pContextMenu->SetDefaultItem(ID_NETWORK_INFO);
-		break;
-	case DoubleClickAction::OPTIONS:
-		pContextMenu->SetDefaultItem(ID_OPTIONS);
-		break;
-	default:
-		pContextMenu->SetDefaultItem(-1);
-		break;
-	}
+
 	pContextMenu->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point1.x, point1.y, this); //在指定位置显示弹出菜单
 
 	CDialogEx::OnRButtonUp(nFlags, point1);
@@ -1293,7 +1094,7 @@ BOOL CTrafficMonitorDlg::PreTranslateMessage(MSG* pMsg)
 	if (pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_ESCAPE) return TRUE;
 	if (pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_RETURN) return TRUE;
 
-	if (theApp.m_main_wnd_data.show_tool_tip && m_tool_tips.GetSafeHwnd())
+	if ( m_tool_tips.GetSafeHwnd())
 	{
 		m_tool_tips.RelayEvent(pMsg);
 	}
@@ -1492,24 +1293,6 @@ void CTrafficMonitorDlg::OnMouseMove(UINT nFlags, CPoint point)
 
 void CTrafficMonitorDlg::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
-	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	switch (theApp.m_main_wnd_data.double_click_action)
-	{
-	case DoubleClickAction::CONNECTION_INFO:
-		OnNetworkInfo();			//双击后弹出“连接详情”对话框
-		break;
-	case DoubleClickAction::OPTIONS:
-		OnOptions();				//双击后弹出“选项设置”对话框
-		break;
-    case DoubleClickAction::TASK_MANAGER:
-        ShellExecuteW(NULL, _T("open"), (theApp.m_system_dir + L"\\Taskmgr.exe").c_str(), NULL, NULL, SW_NORMAL);		//打开任务管理器
-        break;
-    case DoubleClickAction::SEPCIFIC_APP:
-        ShellExecuteW(NULL, _T("open"), (theApp.m_main_wnd_data.double_click_exe).c_str(), NULL, NULL, SW_NORMAL);	//打开指定程序，默认任务管理器
-        break;
-	default:
-		break;
-	}
 	CDialogEx::OnLButtonDblClk(nFlags, point);
 }
 

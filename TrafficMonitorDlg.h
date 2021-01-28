@@ -87,10 +87,7 @@ protected:
 
     HDC m_desktop_dc;
 
-	void ShowInfo();		//将上传下载速度信息显示到窗口中
 	CString GetMouseTipsInfo();		//获取鼠标提示信息
-	void SetTransparency();			//根据m_transparency的值设置窗口透明度
-	void SetTransparency(int transparency);
 	void GetScreenSize();			//获取屏幕的大小
 
 	void AutoSelect();		//自动选择连接
