@@ -50,7 +50,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
@@ -280,6 +280,7 @@
     <None Include="res\TrafficMonitor.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\bitmap1.bmp" />
     <Image Include="res\bitmap3.bmp" />
     <Image Include="res\menu_icon\close.ico" />
     <Image Include="res\menu_icon\connection.ico" />
@@ -297,8 +298,10 @@
     <Image Include="res\menu_icon\statistics.ico" />
     <Image Include="res\menu_icon\taskbar_window.ico" />
     <Image Include="res\notifyicon.ico" />
-    <Image Include="res\notify_preview.bmp" />
-    <Image Include="res\notify_preview_light.bmp" />
+    <Image Include="res\notifyicon2.ico" />
+    <Image Include="res\notifyicon3.ico" />
+    <Image Include="res\notifyicon4.ico" />
+    <Image Include="res\notifyicon5.ico" />
     <Image Include="res\TrafficMonitor.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

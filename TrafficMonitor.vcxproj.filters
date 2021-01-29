@@ -367,12 +367,6 @@
     <Image Include="res\notifyicon.ico">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="res\notify_preview.bmp">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="res\notify_preview_light.bmp">
-      <Filter>资源文件</Filter>
-    </Image>
     <Image Include="res\bitmap3.bmp">
       <Filter>资源文件</Filter>
     </Image>
@@ -419,6 +413,21 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\menu_icon\function.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notifyicon2.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notifyicon3.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notifyicon4.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\notifyicon5.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
