@@ -1,71 +1,61 @@
-﻿  AdapterCommon.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\AdapterCommon.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
+﻿  stdafx.cpp
+  AdapterCommon.cpp
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\AdapterCommon.cpp(107,23): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\AdapterCommon.cpp(130,12): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\AdapterCommon.cpp(147,12): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\AdapterCommon.cpp(159,18): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
   BaseDialog.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\BaseDialog.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
+  CalendarHelper.cpp
   CAutoAdaptSettingsDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\CAutoAdaptSettingsDlg.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   CMFCColorDialogEx.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\CMFCColorDialogEx.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   CPUUsage.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\CPUUsage.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\CPUUsage.cpp(76,23): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+  crashtool.cpp
+  CTabCtrlEx.cpp
+C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\CTabCtrlEx.cpp(26,64): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\CTabCtrlEx.cpp(40,34): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  CVariant.cpp
+  DrawCommonEx.cpp
+  LinkStatic.cpp
   ColorStatic.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\ColorStatic.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   Common.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\Common.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\Common.cpp(45,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\Common.cpp(328,30): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\Common.cpp(773,60): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\Common.cpp(798,26): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\Common.cpp(799,28): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   DrawCommon.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\DrawCommon.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   GeneralSettingsDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\GeneralSettingsDlg.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   IniHelper.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\IniHelper.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
-  LinkStatic.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\LinkStatic.cpp(3,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   ListCtrlEx.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\ListCtrlEx.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\ListCtrlEx.cpp(52,24): warning C4244: “参数”: 从“DWORD_PTR”转换到“int”，可能丢失数据
+  MessageDlg.cpp
   NetworkInfoDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\NetworkInfoDlg.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   OptionsDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\OptionsDlg.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
-  SimpleXML.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\SimpleXML.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
-  SpinEdit.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\SpinEdit.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
-  StaticEx.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\StaticEx.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
-  TabDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TabDlg.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TabDlg.cpp(102,41): warning C4018: “>”: 有符号/无符号不匹配
-  TaskBarDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TaskBarDlg.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
-  TaskBarSettingsDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TaskBarSettingsDlg.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   正在编译...
+  PictureStatic.cpp
+  SimpleXML.cpp
+  SpinEdit.cpp
+  StaticEx.cpp
+  TabDlg.cpp
+C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TabDlg.cpp(102,41): warning C4018: “>”: 有符号/无符号不匹配
   TaskbarColorDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TaskbarColorDlg.cpp(4,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   TaskbarDefaultStyle.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TaskbarDefaultStyle.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
+  TaskBarDlg.cpp
+  TaskBarSettingsDlg.cpp
   Test.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\Test.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   TrafficMonitor.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitor.cpp(5,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
   TrafficMonitorDlg.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(5,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(120,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(176,37): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(205,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(252,87): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(254,87): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
 C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\TrafficMonitorDlg.cpp(256,111): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
-  crashtool.cpp
-C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\crashtool.cpp(1,1): error C2859: C:\Users\devli\Desktop\TrafficMonitor\TrafficMonitor\x64\Release\vc142.pdb 不是创建此预编译头时使用的 pdb 文件，请重新创建预编译头。
+  WIC.cpp
+  WinVersionHelper.cpp
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 1941 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  TrafficMonitor.vcxproj -> C:\Users\devli\Desktop\TrafficMonitor\x64\Release\TrafficMonitor.exe
