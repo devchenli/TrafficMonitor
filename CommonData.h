@@ -91,10 +91,10 @@ enum TaskbarDisplayItem
 //选项设置数据
 struct MainConfigData
 {
-	bool m_show_task_bar_wnd{ false };	//显示任务栏窗口
+	bool m_show_task_bar_wnd{ true };	//显示任务栏窗口
 
-	bool m_show_notify_icon{ true };	//显示通知区域图标
-	//bool m_tbar_show_cpu_memory;		//任务栏窗口显示CPU和内存利用率
+	bool m_show_notify_icon{ false };	//显示通知区域图标
+    //bool m_tbar_show_cpu_memory;		//任务栏窗口显示CPU和内存利用率
 	unsigned int m_tbar_display_item{ TDI_UP | TDI_DOWN };		//任务栏窗口显示的项目
 
 	int m_position_x;	//窗口位置的x坐标

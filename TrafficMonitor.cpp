@@ -48,8 +48,8 @@ void CTrafficMonitorApp::LoadConfig()
 		CCommon::SetColorMode(ColorMode::Default);
 
 	//主窗口设置
-	m_cfg_data.m_show_notify_icon = ini.GetBool(_T("config"), _T("show_notify_icon"), true);
-	m_cfg_data.m_show_task_bar_wnd = ini.GetBool(_T("config"), _T("show_task_bar_wnd"), false);
+	m_cfg_data.m_show_notify_icon = ini.GetBool(_T("config"), _T("show_notify_icon"), false);
+	m_cfg_data.m_show_task_bar_wnd = ini.GetBool(_T("config"), _T("show_task_bar_wnd"), true);
 	m_cfg_data.m_position_x = ini.GetInt(_T("config"), _T("position_x"), -1);
 	m_cfg_data.m_position_y = ini.GetInt(_T("config"), _T("position_y"), -1);
 	m_cfg_data.m_auto_select = ini.GetBool(_T("connection"), _T("auto_select"), true);
